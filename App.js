@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { Text, View, StyleSheet, Button, Image, Pressable } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderBackButton } from '@react-navigation/stack';
 
 import ScreenOne from './screens/ScreenOne';
 import ScreenTwo from './screens/ScreenTwo';
 import ScreenToImplement from './screens/ScreenToImplement';
+import Menu from './screens/Menu';
+import { Ionicons } from '@expo/vector-icons';
 import { stubArray } from 'lodash';
 
 function LogoTitle(props) {
@@ -48,13 +50,7 @@ function HomeScreen({ navigation }) {
 const Stack = createStackNavigator();
 
 export default function App() {
-  /* 
-  TODO: 
-  - implement a custom component in ./components/ScreenToImplement.js (further specifications there)
-  - import that screen to App.js
-  - add that new screen to the stack navigator
-  - let users navigate to it from a different screen
-  */
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -71,33 +67,106 @@ export default function App() {
           // },
         }}
       >
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={({ navigation }) => ({
+            headerTitle: "Cookee", 
+            headerStyle: {backgroundColor: 'black'}, 
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
+            
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>  
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>  
+              <Ionicons name="menu-sharp" size={30} color="black" />            
+              </Pressable>),
+          })}
+        />
+            
         <Stack.Screen 
-          // name="Home" component={HomeScreen} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          name="Home" component={HomeScreen} options={{ 
-            headerTitle: "Cookie", headerStyle: {backgroundColor: 'pink'}, headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
-            headerLeft: () => <Button title="back" />,
-            headerRight: () => <Button title="next" />
-            // Pressable:
-            // <Pressable>
-              // <Image ... />
-            // </Pressable/>
-           }}
+          name="ScreenOne" 
+          component={ScreenOne}
+          options={({ navigation }) => ({
+            headerTitle: "ScreenOneChange", 
+            headerStyle: {backgroundColor: 'pink'}, 
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
+            
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>  
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>  
+              <Ionicons name="menu-sharp" size={30} color="black" />            
+              </Pressable>),
+          })}
         />
 
-        {/* <Stack.Screen name="Home" component={HomeScreen} options={{
-          headerLeft: (props) => (
-            <HeaderBackButton
-              {...props}
-              onPress={() => {navigation.navigate('ScreenOne')}}
-              // title="Left"
-            />
-          ),
-        }}/>    */}
-        <Stack.Screen name="ScreenOne" component={ScreenOne} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
-        <Stack.Screen name="ScreenTwo" component={ScreenTwo} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>
-        {/* <Stack.Screen name="ScreenToImplement" component={ScreenToImplement} options={{ headerTitle: (props) => <LogoTitle {...props} /> }}/>  */}
-
+        <Stack.Screen 
+          name="ScreenTwo" 
+          component={ScreenTwo}
+          options={({ navigation }) => ({
+            headerTitle: "ScreenTwoChange", 
+            headerStyle: {backgroundColor: 'pink'}, 
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
             
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>  
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>  
+              <Ionicons name="menu-sharp" size={30} color="black" />            
+              </Pressable>),
+          })}
+        />
+
+        <Stack.Screen 
+          name="ScreenToImplement" 
+          component={ScreenToImplement}
+          options={({ navigation }) => ({
+            headerTitle: "ScreenToImplementChange", 
+            headerStyle: {backgroundColor: 'pink'}, 
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
+            
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>  
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>  
+              <Ionicons name="menu-sharp" size={30} color="black" />            
+              </Pressable>),
+          })}
+        />
+
+        <Stack.Screen 
+          name="Menu" 
+          component={Menu}
+          options={({ navigation }) => ({
+            headerTitle: "Menu", 
+            headerStyle: {backgroundColor: 'pink'}, 
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
+            
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>  
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>  
+              <Ionicons name="menu-sharp" size={30} color="black" />            
+              </Pressable>),
+          })}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -131,8 +200,8 @@ const styles = StyleSheet.create({
   menuBarImage: {
     // padding: 0,
     // flex: 1,
-    width: 20, 
-    height: 20,
+    width: 32, 
+    height: 32,
     // alignItems: 'center',
   },
 });

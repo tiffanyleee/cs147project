@@ -1,4 +1,4 @@
-import { palette } from './palette';
+import { palette } from "./palette";
 export default Themes = {
     // bg: palette.lightGray,
     buttonBackground: palette.gold, // to access this: Themes.buttonBackground

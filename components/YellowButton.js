@@ -5,16 +5,37 @@ export default function YellowButton(props) {
     // props = {
     //  onPress,
     //  title
+    //  icon
     //}
     // props.printFunction();
 
     return (
         <Pressable onPress={props.onPress} >
-            <Text>{props.title}</Text>
-            <Image />
+            <Text style={styles.yellowButtonText}>{props.title}</Text>
+            <Image style={styles.yellowButtonIcon}>{props.icon}</Image>
         </Pressable>
     )
 }
+
+const styles = StyleSheet.create({
+    yellowButtonText: {
+      justifyContent: 'center',
+      fontSize: 15,
+      fontColor: 'white',
+    },
+    yellowButtonIcon: {
+        height: 20,
+        width: 20,
+    },
+    press: {
+        flexDirection: 'row',
+        backgroundColor: themes.buttonBackground,
+        borderWidth: 0,
+        borderRadius: 10,
+        elevation: 3,
+        overflow: 'hidden',
+      },
+});
 
 // in import 
 // function handlePress() {
