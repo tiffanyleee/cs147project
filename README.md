@@ -1,3 +1,3 @@
-# lecture-7a-demo
+# final project
 
-Boilerplate nested navigation (tab + stack) and Firestore storage tutorials
+stack nav
