@@ -11,38 +11,12 @@ import Menu from './screens/Menu';
 import { Ionicons } from '@expo/vector-icons';
 import { stubArray } from 'lodash';
 
-function LogoTitle(props) {
-  // return (
-  //   <Text>{props}</Text>
-  // )
-  // return (
-  //   <View style={styles.menuBar}>
-  //     <View style={{flex: 1}}>
-  //     <Text style={styles.menuBarText}>
-  //       Left
-  //     </Text>
-  //     </View>
-  //     <View style={{flex: 1}}>
-  //     <Image
-  //       style={styles.menuBarImage}
-  //       source={require('./assets/cookee.png')}
-  //     />
-  //     </View>
-  //     <View style={{flex: 1}}>
-  //     <Text style={styles.menuBarText}>
-  //       Right
-  //     </Text>
-  //     </View>
-      
-  //   </View>
-  // );
-}
 
 function HomeScreen({ navigation }) {
   return (
     <View style={styles.homeScreen}>
       <Text style={styles.homeScreenText}>Home Screen</Text>
-      <Button title="Go to Screen One" onPress={() => navigation.navigate('ScreenOne')}/>
+      <Button title="Go to Screen One" onPress={() => navigation.navigate('ScreenOne')} />
     </View>
   );
 }
@@ -54,7 +28,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions= {{
+        screenOptions={{
           // headerStyle: {
           //   backgroundColor: '#87CEEB',
           // },
@@ -71,99 +45,99 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={({ navigation }) => ({
-            headerTitle: "Cookee", 
-            headerStyle: {backgroundColor: 'black'}, 
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
-            
+            headerTitle: "Cookee",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+
             headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>  
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
             </Pressable>),
 
             headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>  
-              <Ionicons name="menu-sharp" size={30} color="black" />            
-              </Pressable>),
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="black" />
+            </Pressable>),
           })}
         />
-            
-        <Stack.Screen 
-          name="ScreenOne" 
+
+        <Stack.Screen
+          name="ScreenOne"
           component={ScreenOne}
           options={({ navigation }) => ({
-            headerTitle: "ScreenOneChange", 
-            headerStyle: {backgroundColor: 'pink'}, 
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
-            
+            headerTitle: "ScreenOneChange",
+            headerStyle: { backgroundColor: 'pink' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+
             headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>  
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
             </Pressable>),
 
             headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>  
-              <Ionicons name="menu-sharp" size={30} color="black" />            
-              </Pressable>),
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="black" />
+            </Pressable>),
           })}
         />
 
-        <Stack.Screen 
-          name="ScreenTwo" 
+        <Stack.Screen
+          name="ScreenTwo"
           component={ScreenTwo}
           options={({ navigation }) => ({
-            headerTitle: "ScreenTwoChange", 
-            headerStyle: {backgroundColor: 'pink'}, 
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
-            
+            headerTitle: "ScreenTwoChange",
+            headerStyle: { backgroundColor: 'pink' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+
             headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>  
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
             </Pressable>),
 
             headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>  
-              <Ionicons name="menu-sharp" size={30} color="black" />            
-              </Pressable>),
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="black" />
+            </Pressable>),
           })}
         />
 
-        <Stack.Screen 
-          name="ScreenToImplement" 
+        <Stack.Screen
+          name="ScreenToImplement"
           component={ScreenToImplement}
           options={({ navigation }) => ({
-            headerTitle: "ScreenToImplementChange", 
-            headerStyle: {backgroundColor: 'pink'}, 
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
-            
+            headerTitle: "ScreenToImplementChange",
+            headerStyle: { backgroundColor: 'pink' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+
             headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>  
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
             </Pressable>),
 
             headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>  
-              <Ionicons name="menu-sharp" size={30} color="black" />            
-              </Pressable>),
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="black" />
+            </Pressable>),
           })}
         />
 
-        <Stack.Screen 
-          name="Menu" 
+        <Stack.Screen
+          name="Menu"
           component={Menu}
           options={({ navigation }) => ({
-            headerTitle: "Menu", 
-            headerStyle: {backgroundColor: 'pink'}, 
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'},
-            
+            headerTitle: "Menu",
+            headerStyle: { backgroundColor: 'pink' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+
             headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>  
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
             </Pressable>),
 
             headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>  
-              <Ionicons name="menu-sharp" size={30} color="black" />            
-              </Pressable>),
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="black" />
+            </Pressable>),
           })}
         />
 
@@ -175,8 +149,8 @@ export default function App() {
 const styles = StyleSheet.create({
   homeScreen: {
     height: '100%',
-    flex: 1, 
-    alignItems: 'center', 
+    flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
   },
   homeScreenText: {
@@ -200,7 +174,7 @@ const styles = StyleSheet.create({
   menuBarImage: {
     // padding: 0,
     // flex: 1,
-    width: 32, 
+    width: 32,
     height: 32,
     // alignItems: 'center',
   },
