@@ -19,6 +19,7 @@ export default function App() {
   let [fontsLoaded] = useFonts({
     Montserrat: require('./assets/fonts/Montserrat.ttf'),
     MontserratSemiBold: require('./assets/fonts/MontserratSemiBold.ttf'),
+    MontserratBold: require('./assets/fonts/MontserratBold.ttf'),
   });
   
   if (!fontsLoaded) return <AppLoading />;;

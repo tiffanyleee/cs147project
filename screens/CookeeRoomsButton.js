@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         backgroundColor: themes.buttonBackground,
         shadowColor: 'black',
-        shadowOpacity: 0.4,
+        shadowOpacity: 0.3,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
         borderRadius: 20,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     name: {
-        fontSize: 22,
+        fontSize: 21,
         fontWeight: 'bold',
         color: 'white',
         fontFamily: 'MontserratBold',

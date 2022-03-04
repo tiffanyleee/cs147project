@@ -18,12 +18,12 @@ export default function CalendarButton({ title }) {
 
 const styles = StyleSheet.create({
     button: {
-        width: "90%",
+        width: "95%",
         flexDirection: "row",
         justifyContent: "space-between",
         backgroundColor: themes.buttonBackground,
         shadowColor: 'black',
-        shadowOpacity: 0.4,
+        shadowOpacity: 0.3,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
         borderRadius: 20,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     name: {
-        fontSize: 22,
+        fontSize: 21,
         fontWeight: 'bold',
         color: 'white',
         fontFamily: 'MontserratBold',

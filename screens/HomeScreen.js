@@ -65,12 +65,14 @@ export default function HomeScreen({ navigation }) {
           <Text style={themes.time}>Join upcoming community cooking experiences</Text>
           <View style={styles.roomsTile}>
             <View style={styles.roomsDetails}>
-              <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
-              <Text style={themes.time}>Join upcoming community cooking experiences</Text>
+              <Image source={require('../assets/rooms/italian.png')} style={styles.image} />
+              <Text style={themes.header}>ITALIAN NIGHT: LASAGNA</Text>
+              <Text style={themes.time}>Starting now</Text>
             </View>
             <View style={styles.roomsDetails}>
+              <Image source={require('../assets/rooms/french.png')} style={styles.image} />
               <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
-              <Text style={themes.time}>Join upcoming community cooking experiences</Text>
+              <Text style={themes.time}>Tomorrow at 7pm</Text>
             </View>
           </View>
         </View>
@@ -91,8 +93,8 @@ export default function HomeScreen({ navigation }) {
     },
     homeCal: {
       height: '100%',
-      width: '90%',
-      flex: 2,
+      width: '95%',
+      flex: 3,
       alignItems: 'flex-start',
       justifyContent: 'space-around',
       backgroundColor: themes.bgPrimary,
@@ -101,7 +103,7 @@ export default function HomeScreen({ navigation }) {
       paddingLeft: 10,
     },
     calItem: {
-      width: '90%',
+      width: '95%',
       padding: 5,
       flexDirection: 'column',
     },
@@ -111,40 +113,46 @@ export default function HomeScreen({ navigation }) {
     },
     homePantry: {
       height: '100%',
-      width: '90%',
-      flex: 1,
+      width: '95%',
+      flex: 2,
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'grey',
       },
     homeRooms: {
       height: '100%',
-      width: '90%',
-      flex: 2,
+      width: '95%',
+      flex: 4,
       alignItems: 'flex-start',
       justifyContent: 'space-around',
       backgroundColor: themes.bgPrimary,
       margin: 20,
       borderRadius: 20,
       paddingLeft: 10,
+      paddingTop: 5, 
     },
     roomsTile: {
       flexDirection: 'row',
       width: '100%',
     },
-    roomsCol: {
+    roomsDetails: {
       flexDirection: 'column',
+      flex: 1,
+      marginRight: 5,
+    },
+    image: {
+      marginBottom: 5, 
     },
     header: {
       // fontWeight: 'bold',
       fontFamily: 'MontserratBold',
       fontSize: 20,
+      flex: 1,
     },
     time: {
       fontFamily: 'WorkSans',
       fontSize: 15,
       flexDirection: 'row',
       padding: 5,
-      
     },
   });
