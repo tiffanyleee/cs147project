@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     name: {
-        fontSize: 21,
+        fontSize: 19,
         fontWeight: 'bold',
         color: 'white',
         fontFamily: 'MontserratBold',
