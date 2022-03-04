@@ -18,6 +18,8 @@ import text from '../assets/themes/text';
 import { Feather } from '@expo/vector-icons'; 
 import CalendarButton from './CalendarButton';
 import CookeeRoomsButton from './CookeeRoomsButton';
+import PantryButton from './PantryButton';
+import PlusButton from './PlusButton';
 
 export default function HomeScreen({ navigation }) {
     return (
@@ -57,7 +59,15 @@ export default function HomeScreen({ navigation }) {
         </View>
         
         <View style={styles.homePantry}>
-          <Button title="Go to Screen One" onPress={() => navigation.navigate('ScreenOne')} /> 
+          <View style={styles.homePantryButtons}>
+            <PantryButton title="YOUR PANTRY"/>
+            <PlusButton title="+ "/>
+          </View>
+          <Text style={themes.time}>View current ingredients and recipes</Text>
+          <View style={styles.pantryItems}>
+            <Text style={themes.time}>35 Items</Text>
+            <Text style={themes.time}>10 Recipes</Text>
+          </View>
         </View>
 
         <View style={styles.homeRooms}>
@@ -115,10 +125,20 @@ export default function HomeScreen({ navigation }) {
       height: '100%',
       width: '95%',
       flex: 2,
-      alignItems: 'center',
-      justifyContent: 'center',
+      // alignItems: 'center',
+      justifyContent: 'space-around',
       backgroundColor: 'grey',
+      padding: 5,
       },
+    pantryItems: {
+      flexDirection: 'row',
+      width: '100%',
+      justifyContent: 'space-around',
+      borderWidth: 1,
+      borderRadius: 20,
+      backgroundColor: 'pink',
+      height: "20%",
+    },
     homeRooms: {
       height: '100%',
       width: '95%',
@@ -142,6 +162,10 @@ export default function HomeScreen({ navigation }) {
     },
     image: {
       marginBottom: 5, 
+    },
+    homePantryButtons: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
     header: {
       // fontWeight: 'bold',
