@@ -65,8 +65,8 @@ export default function HomeScreen({ navigation }) {
           </View>
           <Text style={themes.time}>View current ingredients and recipes</Text>
           <View style={styles.pantryItems}>
-            <Text style={themes.time}>35 Items</Text>
-            <Text style={themes.time}>10 Recipes</Text>
+            <Text style={styles.item}>35 Items</Text>
+            <Text style={styles.item}>10 Recipes</Text>
           </View>
         </View>
 
@@ -104,7 +104,7 @@ export default function HomeScreen({ navigation }) {
     homeCal: {
       height: '100%',
       width: '95%',
-      flex: 3,
+      flex: 4,
       alignItems: 'flex-start',
       justifyContent: 'space-around',
       backgroundColor: themes.bgPrimary,
@@ -127,8 +127,10 @@ export default function HomeScreen({ navigation }) {
       flex: 2,
       // alignItems: 'center',
       justifyContent: 'space-around',
-      backgroundColor: 'grey',
-      padding: 5,
+      backgroundColor: themes.bgPrimary,
+      borderRadius: 20,
+      paddingLeft: 10,
+      paddingRight: 10,
       },
     pantryItems: {
       flexDirection: 'row',
@@ -136,8 +138,18 @@ export default function HomeScreen({ navigation }) {
       justifyContent: 'space-around',
       borderWidth: 1,
       borderRadius: 20,
-      backgroundColor: 'pink',
-      height: "20%",
+      backgroundColor: 'white',
+      height: "24%",
+      textAlignVertical: 'center',
+    },
+    item: {
+      fontFamily: 'WorkSans',
+      fontSize: 16,
+      flexDirection: 'row',
+      padding: 5,
+      textAlignVertical: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
     },
     homeRooms: {
       height: '100%',

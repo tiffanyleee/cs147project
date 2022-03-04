@@ -127,8 +127,8 @@ export default function App() {
           component={Menu}
           options={({ navigation }) => ({
             headerTitle: "Menu",
-            headerStyle: { backgroundColor: 'pink' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'}, paddingStart: 50,
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white'}, paddingStart: 50,
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -137,7 +137,7 @@ export default function App() {
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="black" marginRight={10}/>
+              <Ionicons name="menu-sharp" size={30} color="white" marginRight={10}/>
             </Pressable>),
           })}
         />
