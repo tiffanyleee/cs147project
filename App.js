@@ -1,29 +1,29 @@
-import * as React from 'react';
+import {useEffect} from 'react';
 import { Text, View, StyleSheet, Button, Image, Pressable } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HeaderBackButton } from '@react-navigation/stack';
 
 import ScreenOne from './screens/ScreenOne';
 import ScreenTwo from './screens/ScreenTwo';
 import ScreenToImplement from './screens/ScreenToImplement';
+import HomeScreen from './screens/HomeScreen';
 import Menu from './screens/Menu';
 import { Ionicons } from '@expo/vector-icons';
-import { stubArray } from 'lodash';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={styles.homeScreen}>
-      <Text style={styles.homeScreenText}>Home Screen</Text>
-      <Button title="Go to Screen One" onPress={() => navigation.navigate('ScreenOne')} />
-    </View>
-  );
-}
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    Montserrat: require('./assets/fonts/Montserrat.ttf'),
+    MontserratSemiBold: require('./assets/fonts/MontserratSemiBold.ttf'),
+  });
+  
+  if (!fontsLoaded) return <AppLoading />;;
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -44,9 +44,10 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={({ navigation }) => ({
-            headerTitle: "Cookee",
-            headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+            headerTitle: "COOKEE",
+            headerStyle: { backgroundColor: 'black'},
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+            safeAreaInsets: {left:10, right:10},
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -55,7 +56,7 @@ export default function App() {
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="black" />
+              <Ionicons name="menu-sharp" size={30} color="white"/>
             </Pressable>),
           })}
         />
@@ -65,8 +66,8 @@ export default function App() {
           component={ScreenOne}
           options={({ navigation }) => ({
             headerTitle: "ScreenOneChange",
-            headerStyle: { backgroundColor: 'pink' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white'},
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -75,7 +76,7 @@ export default function App() {
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="black" />
+              <Ionicons name="menu-sharp" size={30} color="white" />
             </Pressable>),
           })}
         />
@@ -85,8 +86,8 @@ export default function App() {
           component={ScreenTwo}
           options={({ navigation }) => ({
             headerTitle: "ScreenTwoChange",
-            headerStyle: { backgroundColor: 'pink' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -95,7 +96,7 @@ export default function App() {
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="black" />
+              <Ionicons name="menu-sharp" size={30} color="white" />
             </Pressable>),
           })}
         />
@@ -105,8 +106,8 @@ export default function App() {
           component={ScreenToImplement}
           options={({ navigation }) => ({
             headerTitle: "ScreenToImplementChange",
-            headerStyle: { backgroundColor: 'pink' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -115,7 +116,7 @@ export default function App() {
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="black" />
+              <Ionicons name="menu-sharp" size={30} color="white" />
             </Pressable>),
           })}
         />
@@ -126,16 +127,16 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "Menu",
             headerStyle: { backgroundColor: 'pink' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold'}, paddingStart: 50,
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
             </Pressable>),
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="black" />
+              <Ionicons name="menu-sharp" size={30} color="black" marginRight={10}/>
             </Pressable>),
           })}
         />
@@ -156,25 +157,53 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   menuBar: {
-    // height: '100%',
     width: '100%',
     flex: 1,
     flexDirection: 'row',
     backgroundColor: 'red',
   },
   menuBarText: {
-    // padding: 0,
-    // height: '100%',
-    // width: '100%',
     fontSize: 32,
     textAlign: 'center',
-    // flex: 1,
   },
   menuBarImage: {
-    // padding: 0,
-    // flex: 1,
     width: 32,
     height: 32,
-    // alignItems: 'center',
+    marginLeft: 15, 
+  },
+  menuBarHamburer: {
+    width: 32,
+    height: 32,
+    marginLeft: 15, 
+  },
+  homeCal: {
+    height: '100%',
+    width: '90%',
+    flex: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'red',
+    margin: 20,
+  },
+  calItem: {
+    padding: 5,
+    flexDirection: 'row',
+  },
+  homePantry: {
+    height: '100%',
+    width: '90%',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'grey',
+    },
+  homeRooms: {
+    height: '100%',
+    width: '90%',
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'green',
+    margin: 20,
   },
 });

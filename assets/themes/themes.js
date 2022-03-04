@@ -1,4 +1,6 @@
 import { palette } from "./palette";
+import { text } from "./text";
+
 export default Themes = {
     // bg: palette.lightGray,
     buttonBackground: palette.gold, // to access this: Themes.buttonBackground
@@ -13,4 +15,6 @@ export default Themes = {
       shadowRadius: 5,
       shadowOffset: { width: -1, height: 5 },
     },
+    header: text.h1,
+    body: text.body,
 };
