@@ -1,6 +1,7 @@
 export const text = {
     h1: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'MontserratBold',
+        fontWeight: 'bold',
         fontSize: 20,
     },
     body: {

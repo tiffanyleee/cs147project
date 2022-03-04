@@ -12,7 +12,6 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function GroceryItem({ name, id, nav }) {
     const navigation = useNavigation();
-    console.log(nav)
 
     return (
         <View style={styles.item}>

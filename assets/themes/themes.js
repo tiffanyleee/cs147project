@@ -4,6 +4,7 @@ import { text } from "./text";
 export default Themes = {
     // bg: palette.lightGray,
     buttonBackground: palette.gold, // to access this: Themes.buttonBackground
+    bgPrimary: palette.lightGray,
     bgSecondary: palette.white,
     text: palette.black,
     textSecondary: palette.white,
