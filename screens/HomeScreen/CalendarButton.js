@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import themes from '../assets/themes/themes';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
+import themes from '../../assets/themes/themes';
 
-export default function CookeeRoomsButton({ title }) {
+export default function CalendarButton({ title }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+    <Pressable onPress={() => navigation.navigate('ScreenOne')}>
         <View style={styles.button}>
             <Text style={[styles.name]}>{title}</Text>
-            <MaterialCommunityIcons name="fridge-outline" size={24} color="white" />
+            <AntDesign name="calendar" size={24} color="white" />
         </View>
     </Pressable>
   );
@@ -18,7 +18,7 @@ export default function CookeeRoomsButton({ title }) {
 
 const styles = StyleSheet.create({
     button: {
-        // width: "100%",
+        width: "90%",
         flexDirection: "row",
         justifyContent: "space-between",
         backgroundColor: themes.buttonBackground,

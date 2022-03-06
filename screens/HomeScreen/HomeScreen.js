@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-import ScreenOne from './ScreenOne';
-import ScreenTwo from './ScreenTwo';
-import ScreenToImplement from './ScreenToImplement';
-import { Themes } from "../assets/themes";
-import themes from '../assets/themes/themes';
-import text from '../assets/themes/text';
+import ScreenOne from '../ScreenOne';
+import ScreenTwo from '../ScreenTwo';
+import ScreenToImplement from '../ScreenToImplement';
+import { Themes } from "../../assets/themes";
+import themes from '../../assets/themes/themes';
+import text from '../../assets/themes/text';
 import { Feather } from '@expo/vector-icons';
 import CalendarButton from './CalendarButton';
 import CookeeRoomsButton from './CookeeRoomsButton';
@@ -80,7 +80,7 @@ export default function HomeScreen({ navigation }) {
 
           <View style={styles.roomsDetails}>
             <Pressable onPress={() => Linking.openURL('https://stanford.zoom.us/my/lights?pwd=TmxXUXNTMzVSQ2FINTBiZjRMa3d4QT09')}>
-              <Image source={require('../assets/rooms/italian.png')} style={styles.image} />
+              <Image source={require('../../assets/rooms/italian.png')} style={styles.image} />
             </Pressable>
             <Text style={themes.header}>ITALIAN NIGHT: LASAGNA</Text>
             <Text style={themes.time}>Starting now</Text>
@@ -88,7 +88,7 @@ export default function HomeScreen({ navigation }) {
 
           <View style={styles.roomsDetails}>
             <Pressable onPress={() => Linking.openURL('https://stanford.zoom.us/my/lights?pwd=TmxXUXNTMzVSQ2FINTBiZjRMa3d4QT09')}>
-              <Image source={require('../assets/rooms/french.png')} style={styles.image} />
+              <Image source={require('../../assets/rooms/french.png')} style={styles.image} />
             </Pressable>
             <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
             <Text style={themes.time}>Tomorrow at 7pm</Text>

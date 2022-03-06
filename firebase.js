@@ -5,16 +5,15 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-
-// NOTE: REPLACE THESE WITH YOUR PERSONAL CREDENTIALS. THIS CONFIG DOESN'T WORK ANYMORE
 const firebaseConfig = {
-  apiKey: "AIzaSyCKL8Qg11UDFZCzukzLSsBcsUJYjdlzIew",
-  authDomain: "cs47lecture7a.firebaseapp.com",
-  projectId: "cs47lecture7a",
-  storageBucket: "cs47lecture7a.appspot.com",
-  messagingSenderId: "109670563640",
-  appId: "1:109670563640:web:e6d3ad46e06fbb0e60cbcd"
+  apiKey: "AIzaSyAJ7vs08i7GrMx-qzgibZUWnsQRXEl38y8",
+  authDomain: "cookee-8c74e.firebaseapp.com",
+  projectId: "cookee-8c74e",
+  storageBucket: "cookee-8c74e.appspot.com",
+  messagingSenderId: "896670395159",
+  appId: "1:896670395159:web:9e91c7cabb10868fb6a552"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

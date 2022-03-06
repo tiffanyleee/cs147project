@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import themes from '../assets/themes/themes';
+import themes from '../../assets/themes/themes';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function CookeeRoomsButton({ title }) {
@@ -10,7 +10,7 @@ export default function CookeeRoomsButton({ title }) {
     <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
         <View style={styles.button}>
             <Text style={[styles.name]}>{title}</Text>
-            <MaterialCommunityIcons name="chef-hat" size={24} color="white"/>
+            <MaterialCommunityIcons name="fridge-outline" size={24} color="white" />
         </View>
     </Pressable>
   );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import themes from '../assets/themes/themes';
+import themes from '../../assets/themes/themes';
 import { Entypo } from '@expo/vector-icons'; 
 
 export default function CookeeRoomsButton({ title }) {

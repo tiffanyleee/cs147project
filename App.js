@@ -6,7 +6,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ScreenOne from './screens/ScreenOne';
 import ScreenTwo from './screens/ScreenTwo';
 import ScreenToImplement from './screens/ScreenToImplement';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/HomeScreen/HomeScreen';
+
+import AllRooms from './screens/CookeeRooms/AllRooms';
+import CookeeRoom from './screens/CookeeRooms/CookeeRoom';
+import RoomInfo from './screens/CookeeRooms/RoomInfo';
+
+
+
 import Menu from './screens/Menu';
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
@@ -109,6 +116,66 @@ export default function App() {
             headerTitle: "ScreenToImplementChange",
             headerStyle: { backgroundColor: 'black' },
             headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+        <Stack.Screen
+          name="AllRooms"
+          component={AllRooms}
+          options={({ navigation }) => ({
+            headerTitle: "COOKEE ROOMS",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+        <Stack.Screen
+          name="Cookee Room"
+          component={CookeeRoom}
+          options={({ navigation }) => ({
+            headerTitle: "Cookee Rooms",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+        <Stack.Screen
+          name="Room Info"
+          component={RoomInfo}
+          options={({ navigation }) => ({
+            headerTitle: "Cookee Rooms",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
