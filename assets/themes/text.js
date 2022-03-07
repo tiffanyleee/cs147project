@@ -3,6 +3,8 @@ export const text = {
         fontFamily: 'MontserratBold',
         fontWeight: 'bold',
         fontSize: 20,
+        justifyContent: 'center',
+        textAlignVertical: 'center',
     },
     body: {
         fontFamily: 'WorkSans',

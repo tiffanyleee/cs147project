@@ -183,6 +183,9 @@ const styles = StyleSheet.create({
   },
   image: {
     marginBottom: 5,
+    height: 120,
+    width: 120,
+    borderRadius: 15,
   },
   homePantryButtons: {
     flexDirection: 'row',

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { SafeAreaView, Text, View, StyleSheet, Button, FlatList, Pressable} from 'react-native'; 
+import themes from '../assets/themes/themes';
 import MenuItem from './MenuItem'; 
 
 export default function Menu({ route, navigation }) {
@@ -11,22 +12,22 @@ export default function Menu({ route, navigation }) {
         },
         {
           id: '2',
-          name: 'Calendar',
+          name: 'CALENDAR',
           nav: 'ScreenOne',
         },
         {
           id: '3',
-          name: 'Pantry',
+          name: 'PANTRY',
           nav: 'ScreenOne',
         },
         {
           id: '4',
-          name: 'Cookee Rooms',
-          nav: 'ScreenOne',
+          name: 'COOKEE ROOMS',
+          nav: 'AllRooms',
         },
         {
             id: '5',
-            name: 'Settings',
+            name: 'SETTINGS',
             nav: 'ScreenOne',
           },
       ];
@@ -41,7 +42,10 @@ export default function Menu({ route, navigation }) {
     
 
     return (
-        <SafeAreaView style={styles.screenToImplement}>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.header}>
+            <Text style={themes.header}>MENU</Text>
+          </View>
             <FlatList
                 data={DATA} // the array of data that the FlatList displays
                 renderItem={({item}) => renderItem(item)} // function that renders each item
@@ -52,12 +56,19 @@ export default function Menu({ route, navigation }) {
     }
 
 const styles = StyleSheet.create({
-  screenToImplement: {
+  container: {
     flex: 1, 
     alignItems: 'center', 
     justifyContent: 'center',
+    backgroundColor: 'white',
+    width: '100%',
   },
   screenToImplementText: {
     fontSize: 32,
+  },
+  header: {
+    padding: 10,
+  },
+  item: {
   },
 });

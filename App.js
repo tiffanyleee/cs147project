@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { Text, View, StyleSheet, Button, Image, Pressable } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,7 +9,6 @@ import ScreenToImplement from './screens/ScreenToImplement';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 
 import AllRooms from './screens/CookeeRooms/AllRooms';
-import CookeeRoom from './screens/CookeeRooms/CookeeRoom';
 import RoomInfo from './screens/CookeeRooms/RoomInfo';
 
 
@@ -27,35 +26,24 @@ export default function App() {
     Montserrat: require('./assets/fonts/Montserrat.ttf'),
     MontserratSemiBold: require('./assets/fonts/MontserratSemiBold.ttf'),
     MontserratBold: require('./assets/fonts/MontserratBold.ttf'),
+    WorkSans: require('./assets/fonts/WorkSans.ttf'),
+    WorkSansBold: require('./assets/fonts/WorkSansBold.ttf'),
   });
-  
+
   if (!fontsLoaded) return <AppLoading />;;
 
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          // headerStyle: {
-          //   backgroundColor: '#87CEEB',
-          // },
-          // headerTitleStyle: {
-          //   color: 'white',
-          //   height: '100%',
-          //   width: '100%',
-          //   fontWeight: 'bold',
-          //   backgroundColor: 'green',
-          // },
-        }}
-      >
+      <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={({ navigation }) => ({
             headerTitle: "COOKEE",
-            headerStyle: { backgroundColor: 'black'},
+            headerStyle: { backgroundColor: 'black' },
             headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
-            safeAreaInsets: {left:10, right:10},
+            safeAreaInsets: { left: 10, right: 10 },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -64,7 +52,7 @@ export default function App() {
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="white"/>
+              <Ionicons name="menu-sharp" size={30} color="white" />
             </Pressable>),
           })}
         />
@@ -75,7 +63,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "ScreenOneChange",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white'},
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -150,30 +138,10 @@ export default function App() {
         />
 
         <Stack.Screen
-          name="Cookee Room"
-          component={CookeeRoom}
-          options={({ navigation }) => ({
-            headerTitle: "Cookee Rooms",
-            headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
-
-            headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
-            </Pressable>),
-
-            headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="white" />
-            </Pressable>),
-          })}
-        />
-
-        <Stack.Screen
-          name="Room Info"
+          name="RoomInfo"
           component={RoomInfo}
           options={({ navigation }) => ({
-            headerTitle: "Cookee Rooms",
+            headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
             headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
 
@@ -193,18 +161,18 @@ export default function App() {
           name="Menu"
           component={Menu}
           options={({ navigation }) => ({
-            headerTitle: "Menu",
+            headerTitle: "COOKEE",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white'}, paddingStart: 50,
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' }, paddingStart: 50,
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage}/>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
             </Pressable>),
 
             headerRight: () => (<
               Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="white" marginRight={10}/>
+              <Ionicons name="menu-sharp" size={30} color="white" marginRight={10} />
             </Pressable>),
           })}
         />
@@ -237,12 +205,12 @@ const styles = StyleSheet.create({
   menuBarImage: {
     width: 32,
     height: 32,
-    marginLeft: 15, 
+    marginLeft: 15,
   },
   menuBarHamburer: {
     width: 32,
     height: 32,
-    marginLeft: 15, 
+    marginLeft: 15,
   },
   homeCal: {
     height: '100%',
@@ -264,7 +232,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'grey',
-    },
+  },
   homeRooms: {
     height: '100%',
     width: '90%',

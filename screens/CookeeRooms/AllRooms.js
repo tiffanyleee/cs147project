@@ -7,14 +7,12 @@ import {
     Pressable,
     Button,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { db } from "../../firebase";
 import { doc, getDocs, getDoc, collection, onSnapshot } from "firebase/firestore";
 
 
-
 export default function AllRooms({ navigation }) {
-
     // Retrieiving a document from Firestore
     const getDocument = async () => {
         const docRef = doc(db, "rooms", "French-Night");
@@ -47,18 +45,19 @@ export default function AllRooms({ navigation }) {
     }, [])
 
     return (
-        <View style={styles.screenOne}>
+        <View style={styles.container}>
             <Text style={styles.screenOneText}>All Rooms</Text>
-            <Button title="Go to ScreenTwo" onPress={() => navigation.navigate('ScreenTwo')} />
+            <Button title="to room info" onPress={() => navigation.navigate('RoomInfo')}/>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    screenOne: {
+    container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: themes.bgSecondary,
     },
     screenOneText: {
         fontSize: 32,

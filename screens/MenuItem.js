@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { Themes } from "../assets/themes";
 import { useNavigation } from '@react-navigation/native';
+import themes from '../assets/themes/themes';
 
 
 export default function GroceryItem({ name, id, nav }) {
@@ -24,12 +25,17 @@ export default function GroceryItem({ name, id, nav }) {
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: Themes.buttonBackground,
-        padding: 16,
-        marginVertical: 8,
+        backgroundColor: themes.buttonBackground,
+        padding: 14,
+        marginVertical: 7,
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        borderRadius: 20,
+        shadowColor: 'black',
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        shadowOffset: { width: -1, height: 5 },
     },
     name: {
         fontSize: 32,
