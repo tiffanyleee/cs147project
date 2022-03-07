@@ -10,6 +10,7 @@ export default Themes = {
     textSecondary: palette.white,
     statusBar: 'dark-content',
     navigation: palette.black,
+    searchBar: palette.darkGray,
     shadows: {
       shadowColor: palette.black,
       shadowOpacity: 0.6,
