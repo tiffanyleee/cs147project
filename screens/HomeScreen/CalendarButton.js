@@ -7,7 +7,7 @@ import themes from '../../assets/themes/themes';
 export default function CalendarButton({ title }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('ScreenOne')}>
+    <Pressable onPress={() => navigation.navigate('CalendarHome')}>
         <View style={styles.button}>
             <Text style={[styles.name]}>{title}</Text>
             <AntDesign name="calendar" size={24} color="white" />
