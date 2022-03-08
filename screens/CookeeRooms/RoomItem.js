@@ -4,14 +4,26 @@ import {
     Text,
     View,
     Image,
+    Pressable,
 } from 'react-native';
+import themes from '../../assets/themes/themes';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 // export default function RoomItem({ room, id, imagePath }) {
-export default function RoomItem({ room, id }) {
+export default function RoomItem({ room, day, imageurl }) {
+    const navigation = useNavigation(); 
+
     return (
         <View style={styles.item}>
+            <Pressable onPress={() => navigation.navigate('RoomInfo')}>
+                <Image style={styles.image} source={{uri : imageurl}} /> 
+                {/* <Image source={require('../../assets/rooms/french.png')} style={styles.image} /> */}
+            </Pressable>
             <View style={styles.textSection}>
-                <Text style={[styles.name]}>{room}</Text>
+                <Text style={[themes.header]}>{room}</Text>
+                <Text style={[themes.time]}>{day}</Text>
             </View>
       {/* <Image source={imagePath} style={styles.image} /> */}
         </View>
@@ -21,7 +33,7 @@ export default function RoomItem({ room, id }) {
 const styles = StyleSheet.create({
     item: {
         backgroundColor: 'white',
-        padding: 16,
+        padding: 5,
         marginVertical: 8,
         flex: 1,
         flexDirection: 'row',
@@ -31,9 +43,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     name: {
-        fontSize: 32,
+        fontSize: 15,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 5,
     },
     info: {
         fontSize: 16,
@@ -42,9 +54,11 @@ const styles = StyleSheet.create({
         padding: 4,
     },
     image: {
-        width: 80,
-        height: 80,
-        margin: 10,
-        resizeMode: 'contain'
-    }
+        height: 100,
+        width: 100,
+        overflow: 'hidden',
+        margin: 5,
+        resizeMode: 'contain',
+        borderRadius: 15,
+    },
 });

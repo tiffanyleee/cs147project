@@ -54,32 +54,52 @@ export default function AllRooms({ navigation }) {
     // working on text input here
 
     const [text, setText] = useState('');
-    const [states, setStates] = useState(DATA);
-
+    const [filteredData, setFilterData] = useState(DATA3);
     const filterSearchResults = (value) => {
         setText(value);
 
         // if nothing, show all states
         if (!value) {
-            setStates(DATA);
+            setFilterData(DATA3);
         } else {
             // else filter by states that include text
-            setStates(DATA.filter((state) => state.includes(value)));
+            setFilterData(DATA3.filter((room) => room.Room.includes(value)));
         }
     };
 
     const renderItem = (item) => (
         <>
-            {/* <Image style={{height: 400, width: 400}} source={{uri :'https://cdn.mos.cms.futurecdn.net/KYEJp9vem3QQFGhi25SYx4-1200-80.jpg'}} /> */}
             <RoomItem
-                room={item}
-            // id={item.id}
-            //imagePath={item.imagePath} 
+                room={item.Room}
+                day={item.Day}
+                imageurl={item.Image}
             />
         </>
     );
 
-
+    // function renderHeader() {
+    //     return (
+    //       <View
+    //         style={{
+    //           backgroundColor: '#fff',
+    //           padding: 10,
+    //           marginVertical: 10,
+    //           borderRadius: 20
+    //         }}
+    //       >
+    //         <TextInput
+    //           autoCapitalize="none"
+    //           autoCorrect={false}
+    //           clearButtonMode="always"
+    //           value={query}
+    //           onChangeText={queryText => handleSearch(queryText)}
+    //           placeholder="Search"
+    //           style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
+    //         />
+    //       </View>
+    //     );
+    //   }
+      //const [query, setQuery] = useState('');
 
     return (
         <View style={styles.container}>
@@ -100,26 +120,28 @@ export default function AllRooms({ navigation }) {
             <Button title= "filter" style={styles.filterButton}></Button> */}
 
                     <TextInput
+                        autoCapitalize="none"
+                        autoCorrect={false}
                         style={styles.input}
+                        clearButtonMode="always"
                         onChangeText={filterSearchResults}
                         value={text}
                         placeholder="Placeholder"
+                        style={{ backgroundColor: themes.bgPrimary, paddingHorizontal: 20 }}
                     />
-                    {states.map((state) => {
-                        return <Text>{state}</Text>;
-                    })}
                 </View>
 
             </View>
 
             {/* create a flatlist of all the rooms, the data, and the image */}
             <FlatList
-                data={DATA} // the array of data that the FlatList displays
+                // ListHeaderComponent={renderHeader}
+                data={filteredData} // the array of data that the FlatList displays
                 renderItem={({ item }) => renderItem(item)} // function that renders each item
                 keyExtractor={(item) => item.id} // unique key for each item
             />
 
-            <View style={styles.bottom}>
+            {/* <View style={styles.bottom}>
 
                 <View style={styles.roomsTile}>
                     <Pressable onPress={() => navigation.navigate('RoomInfo')}>
@@ -136,7 +158,7 @@ export default function AllRooms({ navigation }) {
                     <Text style={themes.time}>Tomorrow at 7pm</Text>
                 </View>
 
-            </View>
+            </View> */}
         </View>
     );
     //<Button title="to room info" onPress={() => navigation.navigate('RoomInfo')}/>
@@ -145,12 +167,6 @@ export default function AllRooms({ navigation }) {
 const styles = StyleSheet.create({
     roomsTile: {
         flexDirection: 'row',
-    },
-    image: {
-        marginBottom: 5,
-        height: 120,
-        width: 120,
-        borderRadius: 15,
     },
     container: {
         flex: 1, // take up entire screen
