@@ -12,18 +12,19 @@ import { useNavigation } from '@react-navigation/native';
 
 
 // export default function RoomItem({ room, id, imagePath }) {
-export default function RoomItem({ room, day, imageurl }) {
+export default function RoomItem({ room, day, imageurl, screen }) {
     const navigation = useNavigation(); 
 
     return (
         <View style={styles.item}>
-            <Pressable onPress={() => navigation.navigate('RoomInfo')}>
+            <Pressable onPress={() => navigation.navigate(screen)}>
                 <Image style={styles.image} source={{uri : imageurl}} /> 
-                {/* <Image source={require('../../assets/rooms/french.png')} style={styles.image} /> */}
             </Pressable>
             <View style={styles.textSection}>
-                <Text style={[themes.header]}>{room}</Text>
-                <Text style={[themes.time]}>{day}</Text>
+                <Pressable onPress={() => navigation.navigate(screen)}>
+                    <Text style={[themes.header]}>{room}</Text>
+                    <Text style={[themes.time]}>{day}</Text>
+                </Pressable>
             </View>
       {/* <Image source={imagePath} style={styles.image} /> */}
         </View>
