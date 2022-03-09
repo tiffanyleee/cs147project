@@ -19,19 +19,11 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 
-export default function ItalianRoom({ navigation }) {
+export default function ThaiRoom({ navigation }) {
     const DATA = [
         {
-            id: '1',
-            title: "16oz Lasagna Noodles",
-        },
-        {
-            id: '2',
-            title: '4 Cups Mozzarella',
-        },
-        {
             id: '3',
-            title: '36oz Pasta Sauce',
+            title: '36oz Coconut milk',
         },
         {
             id: '4',
@@ -39,11 +31,11 @@ export default function ItalianRoom({ navigation }) {
         },
         {
             id: '5',
-            title: '1lb Ground Beef',
+            title: '0.5lb Sliced Chicken',
         },
         {
             id: '6',
-            title: '0.5 Cup Parmesan',
+            title: '0.5oz Green Curry',
         },
         {
             id: '7',
@@ -56,10 +48,6 @@ export default function ItalianRoom({ navigation }) {
         {
             id: '9',
             title: 'Garlic',
-        },
-        {
-            id: '10',
-            title: 'Herbs',
         },
     ];
 
@@ -85,14 +73,14 @@ export default function ItalianRoom({ navigation }) {
                 </View>
 
                 <View style={styles.headerM}>
-                    <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+                    <Text style={styles.title}>THAI NIGHT: PANAG CURRY</Text>
                 </View>
                 <View style={styles.headerR}>
                 </View>
             </View>
 
             <View style={styles.photo}>
-                <Image source={{ uri: 'https://www.jessicagavin.com/wp-content/uploads/2017/07/meat-lasagna-1200.jpg' }} style={styles.image} />
+                <Image source={{ uri: 'https://howtofeedaloon.com/wp-content/uploads/2017/08/pad-thai-instagram.jpg' }} style={styles.image} />
             </View>
 
             <View style={styles.joinBut}>
@@ -103,15 +91,15 @@ export default function ItalianRoom({ navigation }) {
             <View style={styles.details}>
                 <View style={styles.detailsrow}>
                     <Ionicons name="person-outline" size={24} color="black" />
-                    <Text style={themes.time}> By Chef Bruno</Text>
+                    <Text style={themes.time}> By Chef Sam</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="calendar-alt" size={24} color="black" />
-                    <Text style={themes.time}>  Saturday, February 7 2022</Text>
+                    <Text style={themes.time}>  Sunday, February 8 2022</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="clock" size={24} color="black" />
-                    <Text style={themes.time}> 7:30 - 8:30PM</Text>
+                    <Text style={themes.time}> 6:30 - 7:30PM</Text>
                 </View>
             </View>
 

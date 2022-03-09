@@ -34,9 +34,8 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 19,
-        fontWeight: 'bold',
         color: 'white',
-        fontFamily: 'MontserratBold',
+        fontFamily: 'MontserratSemiBold',
         padding: 5,
         textAlignVertical: 'center',
         textAlign: 'center',

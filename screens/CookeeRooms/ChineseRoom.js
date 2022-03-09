@@ -19,19 +19,19 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 
-export default function ItalianRoom({ navigation }) {
+export default function ChineseRoom({ navigation }) {
     const DATA = [
         {
             id: '1',
-            title: "16oz Lasagna Noodles",
+            title: "0.5 Cup Shrimp",
         },
         {
             id: '2',
-            title: '4 Cups Mozzarella',
+            title: '4 Cups Rice',
         },
         {
             id: '3',
-            title: '36oz Pasta Sauce',
+            title: '1 cabbage',
         },
         {
             id: '4',
@@ -43,7 +43,7 @@ export default function ItalianRoom({ navigation }) {
         },
         {
             id: '6',
-            title: '0.5 Cup Parmesan',
+            title: '2 eggs',
         },
         {
             id: '7',
@@ -59,7 +59,7 @@ export default function ItalianRoom({ navigation }) {
         },
         {
             id: '10',
-            title: 'Herbs',
+            title: 'Soy Sauce',
         },
     ];
 
@@ -85,14 +85,14 @@ export default function ItalianRoom({ navigation }) {
                 </View>
 
                 <View style={styles.headerM}>
-                    <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+                    <Text style={styles.title}>CHINESE NIGHT: FRIED RICE</Text>
                 </View>
                 <View style={styles.headerR}>
                 </View>
             </View>
 
             <View style={styles.photo}>
-                <Image source={{ uri: 'https://www.jessicagavin.com/wp-content/uploads/2017/07/meat-lasagna-1200.jpg' }} style={styles.image} />
+                <Image source={{ uri: 'https://bakeitwithlove.com/wp-content/uploads/2020/01/Hibachi-Fried-Rice-lg-sq.jpg' }} style={styles.image} />
             </View>
 
             <View style={styles.joinBut}>
@@ -103,7 +103,7 @@ export default function ItalianRoom({ navigation }) {
             <View style={styles.details}>
                 <View style={styles.detailsrow}>
                     <Ionicons name="person-outline" size={24} color="black" />
-                    <Text style={themes.time}> By Chef Bruno</Text>
+                    <Text style={themes.time}> By Chef Ming</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="calendar-alt" size={24} color="black" />
@@ -111,7 +111,7 @@ export default function ItalianRoom({ navigation }) {
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="clock" size={24} color="black" />
-                    <Text style={themes.time}> 7:30 - 8:30PM</Text>
+                    <Text style={themes.time}> 7:00 - 8:00PM</Text>
                 </View>
             </View>
 
