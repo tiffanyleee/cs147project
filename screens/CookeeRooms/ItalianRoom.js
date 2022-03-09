@@ -70,10 +70,13 @@ export default function RoomInfo({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+
         <Pressable onPress={() => navigation.goBack()}>
           <Ionicons name="chevron-back" size={35} color="black" />
         </Pressable>
-        <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+        <View style={styles.center}>
+            <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+        </View>
       </View>
 
       <View style={styles.photo}>
@@ -97,7 +100,7 @@ export default function RoomInfo({ navigation }) {
         </View>
       </View>
 
-      <View style={styles.header}>
+      <View style={styles.center}>
         <Text style={styles.title}>INGREDIENTS</Text>
       </View>
 
@@ -126,17 +129,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     paddingLeft: 20,
-    alignContent: 'center',
+    // alignContent: 'center',
+    backgroundColor: 'red',
   },
   title: {
     flex:1,
     fontFamily: 'MontserratBold',
     fontWeight: 'bold',
     fontSize: 20,
+    backgroundColor: 'yellow',
+    // paddingLeft: 20,
+    justifyContent: 'center',
+    // alignItems: 'center',
     // justifyContent: 'center',
-    textAlignVertical: 'center',
-    // alignContent: 'center',
-    
+    // textAlignVertical: 'center',
+    // alignContent: 'center', 
+  },
+  center: { 
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexDirection: 'column',
   },
   photo: {
     flex: 5,

@@ -8,6 +8,7 @@ import {
     Button,
     TextInput,
     FlatList,
+    SafeAreaView
 } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { db } from "../../firebase";
@@ -16,6 +17,8 @@ import themes from '../../assets/themes/themes';
 import { ListItem, SearchBar } from "react-native-elements";
 import { ActivityIndicator } from 'react-native';
 import RoomItem from './RoomItem';
+import FilterButton from './FilterButton';
+import SortButton from './SortButton';
 
 const DATA = ['Test1', 'califonria', 'three'];
 // const DATA2 = [{Day: 'Test1', Room: 'italin'}, {Day: 'califonria' }, {Day :'three'}];
@@ -23,7 +26,6 @@ const DATA = ['Test1', 'califonria', 'three'];
 
 export default function AllRooms({ navigation }) {
     // loading data from firebase
-    //////////////////////
     // Get all documents from a collection
     const getAllDocuments = async () => {
         let allDocs = await getDocs(collection(db, "rooms"));
@@ -32,6 +34,7 @@ export default function AllRooms({ navigation }) {
             return document.data();
         })
         updateRooms(myArray);
+        setFilterData(myArray);
     };
 
     // use effect for the firebase access
@@ -52,9 +55,8 @@ export default function AllRooms({ navigation }) {
 
     //////////////////////
     // working on text input here
-
     const [text, setText] = useState('');
-    const [filteredData, setFilterData] = useState(DATA3);
+    const [filteredData, setFilterData] = useState([]);
     const filterSearchResults = (value) => {
         setText(value);
 
@@ -63,175 +65,106 @@ export default function AllRooms({ navigation }) {
             setFilterData(DATA3);
         } else {
             // else filter by states that include text
-            setFilterData(DATA3.filter((room) => room.Room.includes(value)));
+            setFilterData(DATA3.filter((room) => room.Room.toLowerCase().includes(value.toLowerCase())));
         }
     };
 
     const renderItem = (item) => (
-        <>
-            <RoomItem
-                room={item.Room}
-                day={item.Day}
-                imageurl={item.Image}
-            />
-        </>
+        <RoomItem
+            room={item.Room}
+            day={item.Day}
+            imageurl={item.Image}
+            screen={item.Screen}
+        />
     );
-
-    // function renderHeader() {
-    //     return (
-    //       <View
-    //         style={{
-    //           backgroundColor: '#fff',
-    //           padding: 10,
-    //           marginVertical: 10,
-    //           borderRadius: 20
-    //         }}
-    //       >
-    //         <TextInput
-    //           autoCapitalize="none"
-    //           autoCorrect={false}
-    //           clearButtonMode="always"
-    //           value={query}
-    //           onChangeText={queryText => handleSearch(queryText)}
-    //           placeholder="Search"
-    //           style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
-    //         />
-    //       </View>
-    //     );
-    //   }
-      //const [query, setQuery] = useState('');
 
     return (
         <View style={styles.container}>
             <View style={styles.top}>
-                <View style={styles.flexChild1}>
-                    <Text style={styles.text}> Join our curated community cooking experiences </Text>
-                    {/* </View>
-            <View style={styles.flexChild2}> 
-                <SearchBar style={styles.searchBar}
-                placeholder="Search Here..."
-                /> */}
-                    {/*<View > 
-                <Image source={require('../../assets/rooms/magnifyGlass.png')} style={styles.magnifyGlass} />
-            </View>*/}
-                    {/* </View>
-            <View style={styles.flexChild3}> 
-            <Button title= "sort" style={styles.sortButton}></Button> 
-            <Button title= "filter" style={styles.filterButton}></Button> */}
-
-                    <TextInput
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        style={styles.input}
-                        clearButtonMode="always"
-                        onChangeText={filterSearchResults}
-                        value={text}
-                        placeholder="Placeholder"
-                        style={{ backgroundColor: themes.bgPrimary, paddingHorizontal: 20 }}
-                    />
-                </View>
+                <Text style={styles.text}> Join our curated community cooking experiences </Text>
+                {/* </View>
+                <View style={styles.flexChild2}> 
+                    <SearchBar style={styles.searchBar}
+                    placeholder="Search Here..."
+                    /> */}
 
             </View>
-
-            {/* create a flatlist of all the rooms, the data, and the image */}
-            <FlatList
-                // ListHeaderComponent={renderHeader}
-                data={filteredData} // the array of data that the FlatList displays
-                renderItem={({ item }) => renderItem(item)} // function that renders each item
-                keyExtractor={(item) => item.id} // unique key for each item
-            />
-
-            {/* <View style={styles.bottom}>
-                <View style={styles.roomsTile}>
-                    <Pressable onPress={() => navigation.navigate('RoomInfo')}>
-                        <Image source={require('../../assets/rooms/italian.png')} style={styles.image} />
-                    </Pressable>
-                    <Text style={themes.header}>ITALIAN NIGHT: LASAGNA</Text>
-                    <Text style={themes.time}>Starting now</Text>
+            <View style={styles.search}>
+                <TextInput
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    style={styles.input}
+                    clearButtonMode="always"
+                    onChangeText={filterSearchResults}
+                    value={text}
+                    placeholder="Search"
+                    style={{ backgroundColor: themes.searchBar, paddingHorizontal: 20, height: 40, borderRadius: 15 }}
+                />
+                <View style={styles.searchButtons}>
+                    <FilterButton title="Filter" />
+                    <SortButton title="Sort"/>
                 </View>
-                <View style={styles.roomsTile}>
-                    <Pressable onPress={() => navigation.navigate('RoomInfo')}>
-                        <Image source={require('../../assets/rooms/french.png')} style={styles.image} />
-                    </Pressable>
-                    <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
-                    <Text style={themes.time}>Tomorrow at 7pm</Text>
-                </View>
-            </View> */}
+            </View>
+
+            <SafeAreaView style={styles.rooms}>
+                {/* create a flatlist of all the rooms, the data, and the image */}
+                <FlatList
+                    // ListHeaderComponent={renderHeader}
+                    data={filteredData} // the array of data that the FlatList displays
+                    renderItem={({ item }) => renderItem(item)} // function that renders each item
+                    keyExtractor={(item) => item.id} // unique key for each item
+                />
+            </SafeAreaView>
         </View>
     );
-    //<Button title="to room info" onPress={() => navigation.navigate('RoomInfo')}/>
 }
 
 const styles = StyleSheet.create({
-    roomsTile: {
-        flexDirection: 'row',
-    },
     container: {
         flex: 1, // take up entire screen
         backgroundColor: themes.bgSecondary,
         padding: 8,
-        justifyContent: 'center',
-    },
-    bottom: {
-        display: 'flex',
-        flex: 4, // take up entire screen
-        //backgroundColor: 'blue',
-        marginHorizontal: 12,
-        flexDirection: "column",
-
+        justifyContent: 'space-evenly',
     },
     top: {//background container for three red boxes
         display: "flex",
-        flex: 1.5, // take up entire screen
-        flexDirection: "column",
+        flex: 0.5, // take up entire screen
         justifyContent: "center",
         alignItems: "center",
-        marginHorizontal: 10,
+        // backgroundColor: 'red',
+        width: "100%",
+    },
+    search: {
+        flex: 1.3,
+        alignItems: "stretch",
+        // backgroundColor: 'blue',
+        width: "100%",
+        flexDirection: 'column',
+    },
+    searchButtons: { 
+        padding: 10,
+        justifyContent: 'flex-end',
+        flexDirection: 'row',
+    },
+    rooms: {
+        flex: 8,
+        width: "100%",
+        padding: 8,
     },
     text: {
         fontSize: 14,
         color: themes.text,
-    },
-    flexChild1: { //the thre boxes
-        flex: .3,
-        width: '100%',
-        height: '20%',
-        padding: 10,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
-        alignItems: "center" // if flexDirection === "row", alignItems handles y-axis, else: x-axis
-    },
-    flexChild2: { //the thre boxes
-        flex: .5,
-        width: '100%',
-        height: '20%',
-        padding: 4,
-        display: "flex",
-        justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
-        alignItems: "center"
-        // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
-        // if flexDirection === "row", alignItems handles y-axis, else: x-axis
-    },
-    searchBar: {
-        display: "flex",
-        alignItems: "flex-end",
-        justifyContent: "center",
-        backgroundColor: themes.searchBar,
-        width: '100%',
-        height: '100%',
-        borderRadius: 25,
-        paddingRight: 15,
-
     },
     input: {
         height: 40,
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        width: "100%",
     },
     flexChild3: { //the thre boxes
-        flex: 0.3,
+        // flex: 0.3,
+        backgroundColor: 'green',
         width: '100%',
         height: '20%',
         padding: 4,
