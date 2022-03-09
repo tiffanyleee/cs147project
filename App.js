@@ -11,6 +11,7 @@ import HomeScreen from './screens/HomeScreen/HomeScreen';
 import AllRooms from './screens/CookeeRooms/AllRooms';
 import RoomInfo from './screens/CookeeRooms/RoomInfo';
 
+import PantryScreen from './screens/PantryScreens/PantryScreen';
 
 
 import Menu from './screens/Menu';
@@ -96,6 +97,26 @@ export default function App() {
             </Pressable>),
           })}
         />
+
+        <Stack.Screen
+          name="PantryScreen"
+          component={PantryScreen}
+          options={({ navigation }) => ({
+            headerTitle: "PANTRY",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />        
 
         <Stack.Screen
           name="ScreenToImplement"

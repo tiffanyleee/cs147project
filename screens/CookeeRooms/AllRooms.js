@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     StyleSheet,
     Text,
@@ -26,36 +26,59 @@ export default function AllRooms({ navigation }) {
             console.log("No such document!");
         }
     };
-
+   
     // Get all documents from a collection
     const getAllDocuments = async () => {
         let allDocs = await getDocs(collection(db, "rooms"));
-
+        
         // Printing out the array of documents (objects), probably put this in state variable
         // [ {title: Dawn FM, artist: The Weeknd }, ... ]
-        console.log(
+        // console.log(
             allDocs.docs.map((document) => {
                 return document.data();
             })
-        );
+        // );
+        console.log("Inside get alldocs");
+     
+        console.log(allDocs);
+        updateRooms(allDocs);
     };
 
     useEffect(() => {
-        getDocument();
+        //getDocument();
         getAllDocuments();
+        
     }, [])
 
+    const [userInput, setInput] = useState("");
+    const [rooms, setRooms] = useState ([]);
+    const updateRooms = (data) => {
+           console.log("Inside update rooms");
+            setRooms (data);
+           console.log(rooms);
+        // );
+    }
+    const updateInput = (userInput) => {
+        console.log("Inside update input");
+        setInput(userInput);
+        console.log(rooms);
+        //rooms.filter(x => x.Room.includes(userInput));
+        //console.log(rooms);
+    }
 
     return (
         <View style={styles.container}>
+            <SearchBar style={styles.searchBar}
+                placeholder="Search Here..."
+                value = {userInput}
+                onChangeText = {updateInput}
+                />
         <View style={styles.top}>
             <View style={styles.flexChild1}> 
             <Text style={styles.text}> Join our curated community cooking experiences </Text>
             </View>
             <View style={styles.flexChild2}> 
-                <SearchBar style={styles.searchBar}
-                placeholder="Search Here..."
-                />
+                
             {/*<View > 
                 <Image source={require('../../assets/rooms/magnifyGlass.png')} style={styles.magnifyGlass} />
             </View>*/}
@@ -101,7 +124,7 @@ export default function AllRooms({ navigation }) {
         borderRadius: 15,
     },
     container: {
-        flex: 1, // take up entire screen
+        // flex: 1, // take up entire screen
         backgroundColor: themes.bgSecondary,
         padding: 8,
 
@@ -115,11 +138,11 @@ export default function AllRooms({ navigation }) {
 
     },
     top: {//background container for three red boxes
-        display: "flex",
-        flex: 1.5, // take up entire screen
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        // display: "flex",
+        // flex: 1.5, // take up entire screen
+        // flexDirection: "column",
+        // justifyContent: "center",
+        // alignItems: "center",
         marginHorizontal: 10,
     },
     text: {
@@ -137,23 +160,22 @@ export default function AllRooms({ navigation }) {
         alignItems: "center" // if flexDirection === "row", alignItems handles y-axis, else: x-axis
     },
     flexChild2: { //the thre boxes
-        flex: .5,
-        width: '100%',
-        height: '20%',
+        // flex: .5,
+        width: 200,
+        height: 20,
         padding: 4,
-        display: "flex",
-        justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
-        alignItems: "center" 
-    // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
-        // if flexDirection === "row", alignItems handles y-axis, else: x-axis
+        // display: "flex",
+        // justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
+        // alignItems: "center" 
+   
     },
     searchBar: {
-        display: "flex",
-        alignItems: "flex-end",
-        justifyContent: "center",
+        // display: "flex",
+        // alignItems: "flex-end",
+        // justifyContent: "center",
         backgroundColor: themes.searchBar,
-        width: '100%',
-        height: '100%',
+        width: 200,
+        height: 20,
         borderRadius: 25,
         paddingRight: 15,
     

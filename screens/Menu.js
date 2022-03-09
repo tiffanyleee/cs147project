@@ -18,7 +18,7 @@ export default function Menu({ route, navigation }) {
         {
           id: '3',
           name: 'PANTRY',
-          nav: 'ScreenOne',
+          nav: 'PantryScreen',
         },
         {
           id: '4',

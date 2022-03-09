@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function CookeeRoomsButton({ title }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+    <Pressable onPress={() => navigation.navigate('PantryScreen')}>
         <View style={styles.button}>
             <Text style={[styles.name]}>{title}</Text>
             <MaterialCommunityIcons name="fridge-outline" size={24} color="white" />
