@@ -6,131 +6,174 @@ import {
     Image,
     Pressable,
     Button,
+    TextInput,
+    FlatList,
 } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { db } from "../../firebase";
 import { doc, getDocs, getDoc, collection, onSnapshot } from "firebase/firestore";
 import themes from '../../assets/themes/themes';
 import { ListItem, SearchBar } from "react-native-elements";
+import { ActivityIndicator } from 'react-native';
+import RoomItem from './RoomItem';
+
+const DATA = ['Test1', 'califonria', 'three'];
+// const DATA2 = [{Day: 'Test1', Room: 'italin'}, {Day: 'califonria' }, {Day :'three'}];
+
 
 export default function AllRooms({ navigation }) {
-    // Retrieiving a document from Firestore
-    const getDocument = async () => {
-        const docRef = doc(db, "rooms", "French-Night");
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-            console.log(docSnap.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    };
-   
+    // loading data from firebase
+    //////////////////////
     // Get all documents from a collection
     const getAllDocuments = async () => {
         let allDocs = await getDocs(collection(db, "rooms"));
-        
-        // Printing out the array of documents (objects), probably put this in state variable
-        // [ {title: Dawn FM, artist: The Weeknd }, ... ]
-        // console.log(
-            allDocs.docs.map((document) => {
-                return document.data();
-            })
-        // );
-        console.log("Inside get alldocs");
-     
-        console.log(allDocs);
-        updateRooms(allDocs);
+        // saving the array of documents (objects)
+        const myArray = allDocs.docs.map((document) => {
+            return document.data();
+        })
+        updateRooms(myArray);
     };
 
+    // use effect for the firebase access
     useEffect(() => {
-        //getDocument();
         getAllDocuments();
-        
     }, [])
 
-    const [userInput, setInput] = useState("");
-    const [rooms, setRooms] = useState ([]);
+
+    const [DATA3, setRooms] = useState([]);
     const updateRooms = (data) => {
-           console.log("Inside update rooms");
-            setRooms (data);
-           console.log(rooms);
-        // );
+        // console.log("Inside update rooms");
+        setRooms(data);
     }
-    const updateInput = (userInput) => {
-        console.log("Inside update input");
-        setInput(userInput);
-        console.log(rooms);
-        //rooms.filter(x => x.Room.includes(userInput));
-        //console.log(rooms);
-    }
+
+    console.log('outside of functions');
+    console.log(DATA3);
+    console.log('done with outside');
+
+    //////////////////////
+    // working on text input here
+
+    const [text, setText] = useState('');
+    const [filteredData, setFilterData] = useState(DATA3);
+    const filterSearchResults = (value) => {
+        setText(value);
+
+        // if nothing, show all states
+        if (!value) {
+            setFilterData(DATA3);
+        } else {
+            // else filter by states that include text
+            setFilterData(DATA3.filter((room) => room.Room.includes(value)));
+        }
+    };
+
+    const renderItem = (item) => (
+        <>
+            <RoomItem
+                room={item.Room}
+                day={item.Day}
+                imageurl={item.Image}
+            />
+        </>
+    );
+
+    // function renderHeader() {
+    //     return (
+    //       <View
+    //         style={{
+    //           backgroundColor: '#fff',
+    //           padding: 10,
+    //           marginVertical: 10,
+    //           borderRadius: 20
+    //         }}
+    //       >
+    //         <TextInput
+    //           autoCapitalize="none"
+    //           autoCorrect={false}
+    //           clearButtonMode="always"
+    //           value={query}
+    //           onChangeText={queryText => handleSearch(queryText)}
+    //           placeholder="Search"
+    //           style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
+    //         />
+    //       </View>
+    //     );
+    //   }
+      //const [query, setQuery] = useState('');
 
     return (
         <View style={styles.container}>
-            <SearchBar style={styles.searchBar}
-                placeholder="Search Here..."
-                value = {userInput}
-                onChangeText = {updateInput}
-                />
-        <View style={styles.top}>
-            <View style={styles.flexChild1}> 
-            <Text style={styles.text}> Join our curated community cooking experiences </Text>
-            </View>
+            <View style={styles.top}>
+                <View style={styles.flexChild1}>
+                    <Text style={styles.text}> Join our curated community cooking experiences </Text>
+                    {/* </View>
             <View style={styles.flexChild2}> 
-                
-            {/*<View > 
+                <SearchBar style={styles.searchBar}
+                placeholder="Search Here..."
+                /> */}
+                    {/*<View > 
                 <Image source={require('../../assets/rooms/magnifyGlass.png')} style={styles.magnifyGlass} />
             </View>*/}
-            </View>
+                    {/* </View>
             <View style={styles.flexChild3}> 
             <Button title= "sort" style={styles.sortButton}></Button> 
-            <Button title= "filter" style={styles.filterButton}></Button>
+            <Button title= "filter" style={styles.filterButton}></Button> */}
+
+                    <TextInput
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        style={styles.input}
+                        clearButtonMode="always"
+                        onChangeText={filterSearchResults}
+                        value={text}
+                        placeholder="Placeholder"
+                        style={{ backgroundColor: themes.bgPrimary, paddingHorizontal: 20 }}
+                    />
+                </View>
+
             </View>
-        </View>
-        <View style={styles.bottom}>
-            
-            <View style={styles.roomsTile}>  
-                <Pressable onPress={() => navigation.navigate('RoomInfo')}>
-                <Image source={require('../../assets/rooms/italian.png')} style={styles.image} />
-                </Pressable>
-                <Text style={themes.header}>ITALIAN NIGHT: LASAGNA</Text>
-                <Text style={themes.time}>Starting now</Text>
-            </View>
-            <View style={styles.roomsTile}>
-                <Pressable onPress={() => navigation.navigate('RoomInfo')}>
-                <Image source={require('../../assets/rooms/french.png')} style={styles.image} />
-                </Pressable>
-                <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
-                <Text style={themes.time}>Tomorrow at 7pm</Text>
-            </View>
-            
-        </View>
+
+            {/* create a flatlist of all the rooms, the data, and the image */}
+            <FlatList
+                // ListHeaderComponent={renderHeader}
+                data={filteredData} // the array of data that the FlatList displays
+                renderItem={({ item }) => renderItem(item)} // function that renders each item
+                keyExtractor={(item) => item.id} // unique key for each item
+            />
+
+            {/* <View style={styles.bottom}>
+                <View style={styles.roomsTile}>
+                    <Pressable onPress={() => navigation.navigate('RoomInfo')}>
+                        <Image source={require('../../assets/rooms/italian.png')} style={styles.image} />
+                    </Pressable>
+                    <Text style={themes.header}>ITALIAN NIGHT: LASAGNA</Text>
+                    <Text style={themes.time}>Starting now</Text>
+                </View>
+                <View style={styles.roomsTile}>
+                    <Pressable onPress={() => navigation.navigate('RoomInfo')}>
+                        <Image source={require('../../assets/rooms/french.png')} style={styles.image} />
+                    </Pressable>
+                    <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
+                    <Text style={themes.time}>Tomorrow at 7pm</Text>
+                </View>
+            </View> */}
         </View>
     );
     //<Button title="to room info" onPress={() => navigation.navigate('RoomInfo')}/>
-    }
+}
 
-    const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     roomsTile: {
         flexDirection: 'row',
-        //flexwrap: wrap,
-        //width: '100%',
-    },
-    image: {
-        marginBottom: 5,
-        height: 120,
-        width: 120,
-        borderRadius: 15,
     },
     container: {
-        // flex: 1, // take up entire screen
+        flex: 1, // take up entire screen
         backgroundColor: themes.bgSecondary,
         padding: 8,
-
+        justifyContent: 'center',
     },
     bottom: {
-        display:'flex',
+        display: 'flex',
         flex: 4, // take up entire screen
         //backgroundColor: 'blue',
         marginHorizontal: 12,
@@ -138,11 +181,11 @@ export default function AllRooms({ navigation }) {
 
     },
     top: {//background container for three red boxes
-        // display: "flex",
-        // flex: 1.5, // take up entire screen
-        // flexDirection: "column",
-        // justifyContent: "center",
-        // alignItems: "center",
+        display: "flex",
+        flex: 1.5, // take up entire screen
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
         marginHorizontal: 10,
     },
     text: {
@@ -155,34 +198,37 @@ export default function AllRooms({ navigation }) {
         height: '20%',
         padding: 10,
         display: "flex",
-        flexDirection: "row", 
+        flexDirection: "column",
         justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
         alignItems: "center" // if flexDirection === "row", alignItems handles y-axis, else: x-axis
     },
     flexChild2: { //the thre boxes
-        // flex: .5,
-        width: 200,
-        height: 20,
+        flex: .5,
+        width: '100%',
+        height: '20%',
         padding: 4,
-        // display: "flex",
-        // justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
-        // alignItems: "center" 
-   
+        display: "flex",
+        justifyContent: "center", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
+        alignItems: "center"
+        // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
+        // if flexDirection === "row", alignItems handles y-axis, else: x-axis
     },
     searchBar: {
-        // display: "flex",
-        // alignItems: "flex-end",
-        // justifyContent: "center",
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "center",
         backgroundColor: themes.searchBar,
-        width: 200,
-        height: 20,
+        width: '100%',
+        height: '100%',
         borderRadius: 25,
         paddingRight: 15,
-    
+
     },
-    magnifyGlass: {
-        
-        
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
     },
     flexChild3: { //the thre boxes
         flex: 0.3,
@@ -190,7 +236,7 @@ export default function AllRooms({ navigation }) {
         height: '20%',
         padding: 4,
         display: "flex",
-        flexDirection: "row", 
+        flexDirection: "row",
         justifyContent: "flex-end", // if flexDirection === "row", justifyContent handles x-axis, else: y-axis
         alignItems: "center" // if flexDirection === "row", alignItems handles y-axis, else: x-axis
     },

@@ -11,6 +11,8 @@ import HomeScreen from './screens/HomeScreen/HomeScreen';
 import AllRooms from './screens/CookeeRooms/AllRooms';
 import RoomInfo from './screens/CookeeRooms/RoomInfo';
 
+import CalendarRoom from './screens/CalendarScreen/CalendarHome';
+
 import PantryScreen from './screens/PantryScreens/PantryScreen';
 
 
@@ -161,6 +163,26 @@ export default function App() {
         <Stack.Screen
           name="RoomInfo"
           component={RoomInfo}
+          options={({ navigation }) => ({
+            headerTitle: "COOKEE ROOMS",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+        <Stack.Screen
+          name="CalendarHome"
+          component={CalendarRoom}
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },

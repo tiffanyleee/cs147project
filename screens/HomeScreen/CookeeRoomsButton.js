@@ -7,16 +7,21 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function CookeeRoomsButton({ title }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('AllRooms')}>
-        <View style={styles.button}>
-            <Text style={[styles.name]}>{title}</Text>
-            <MaterialCommunityIcons name="chef-hat" size={24} color="white"/>
-        </View>
-    </Pressable>
+    <View style={styles.container}>
+        <Pressable onPress={() => navigation.navigate('AllRooms')}>
+            <View style={styles.button}>
+                <Text style={[styles.name]}>{title}</Text>
+                <MaterialCommunityIcons name="chef-hat" size={24} color="white"/>
+            </View>
+        </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        width: '100%'
+    },
     button: {
         // width: "100%",
         flexDirection: "row",
@@ -30,6 +35,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         paddingRight: 10,
         alignItems: 'center',
+        marginRight: 10,
     },
     name: {
         fontSize: 19,

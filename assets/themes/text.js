@@ -1,5 +1,5 @@
 export const text = {
-    h1: {
+    header: {
         fontFamily: 'MontserratBold',
         fontWeight: 'bold',
         fontSize: 20,
@@ -9,5 +9,11 @@ export const text = {
     body: {
         fontFamily: 'WorkSans',
         fontSize: 15,
-    }
+    },
+    text: {
+        fontFamily: 'WorkSans',
+        fontSize: 15,
+        color: 'black',
+        justifyContent: 'center',
+    },
   };

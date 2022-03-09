@@ -6,7 +6,6 @@ export default Themes = {
     buttonBackground: palette.gold, // to access this: Themes.buttonBackground
     bgPrimary: palette.lightGray,
     bgSecondary: palette.white,
-    text: palette.black,
     textSecondary: palette.white,
     statusBar: 'dark-content',
     navigation: palette.black,
@@ -17,6 +16,7 @@ export default Themes = {
       shadowRadius: 5,
       shadowOffset: { width: -1, height: 5 },
     },
-    header: text.h1,
+    header: text.header,
     body: text.body,
+    text: text.text,
 };

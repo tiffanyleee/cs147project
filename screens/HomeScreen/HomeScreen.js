@@ -19,7 +19,7 @@ import { Feather } from '@expo/vector-icons';
 import CalendarButton from './CalendarButton';
 import CookeeRoomsButton from './CookeeRoomsButton';
 import PantryButton from './PantryButton';
-import PlusButton from './PlusButton';
+import PlusButton from '../../components/PlusButton';
 import { WebView } from 'react-native-webview';
 import { Linking } from 'react-native';
 
@@ -64,12 +64,12 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.homePantry}>
         <View style={styles.homePantryButtons}>
           <PantryButton title="YOUR PANTRY" />
-          <PlusButton title="+ " />
+          <PlusButton title="+" />
         </View>
         <Text style={themes.time}>View current ingredients and recipes</Text>
         <View style={styles.pantryItems}>
-          <Text style={styles.item}>35 Items</Text>
-          <Text style={styles.item}>10 Recipes</Text>
+          <Text style={styles.text}>35 Items</Text>
+          <Text style={styles.text}>10 Recipes</Text>
         </View>
       </View>
 
@@ -145,10 +145,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-around',
+    padding: 8,
     borderWidth: 1,
     borderRadius: 20,
     backgroundColor: 'white',
-    height: "24%",
     textAlignVertical: 'center',
   },
   item: {
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
   homePantryButtons: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
   header: {
     // fontWeight: 'bold',

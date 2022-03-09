@@ -1,25 +1,31 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import themes from '../../assets/themes/themes';
+import themes from '../assets/themes/themes';
 import { Entypo } from '@expo/vector-icons'; 
 
 export default function CookeeRoomsButton({ title }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
-        <View style={styles.button}>
-            <Entypo name="plus" size={30} color="white" />
-        </View>
-    </Pressable>
+    <View style={styles.container}>
+        <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+            <View style={styles.button}>
+                <Entypo name="plus" size={30} color="white" />
+            </View>
+        </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+    },
     button: {
-        // width: "100%",
+        //width: "100%",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         backgroundColor: themes.buttonBackground,
         shadowColor: 'black',
         shadowOpacity: 0.3,
