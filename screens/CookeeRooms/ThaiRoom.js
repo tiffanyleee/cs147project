@@ -178,10 +178,8 @@ const styles = StyleSheet.create({
         flex: 1.3,
         alignItems: 'flex-start',
         justifyContent: 'space-around',
-        //backgroundColor: themes.bgPrimary,
         borderRadius: 20,
         padding: 6,
-        //width: '100%',
     },
     detailsrow: {
         flexDirection: 'row',
@@ -199,10 +197,8 @@ const styles = StyleSheet.create({
         flex: 3,
     },
     item: {
-        //marginVertical: 8,
         flexDirection: 'row',
         alignItems: 'center',
-        //backgroundColor: themes.bgPrimary,
-        //borderRadius: 8,
+
     },
 });
