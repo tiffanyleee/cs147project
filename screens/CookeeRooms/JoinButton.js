@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
         borderRadius: 20,
-        margin: 10,
+        //margin: 10,
         alignItems: 'center',
     },
     name: {

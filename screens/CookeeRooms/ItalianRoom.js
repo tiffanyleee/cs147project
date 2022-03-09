@@ -69,48 +69,55 @@ export default function RoomInfo({ navigation }) {
   
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+        <View style={styles.header}>
+            <View style={styles.headerL}>
+            <Pressable style={styles.BackButtonBox} onPress={() => navigation.goBack()}>
+                <Ionicons name="chevron-back" size={35} color="black" />
+            </Pressable>
+            </View>
 
-        <Pressable onPress={() => navigation.goBack()}>
-          <Ionicons name="chevron-back" size={35} color="black" />
-        </Pressable>
-        <View style={styles.center}>
-            <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+            <View style={styles.headerM}> 
+                <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+            </View>
+            <View style={styles.headerR}> 
+            </View> 
         </View>
-      </View>
 
-      <View style={styles.photo}>
-        <Image source={{uri: 'https://www.jessicagavin.com/wp-content/uploads/2017/07/meat-lasagna-1200.jpg'}} style={styles.image} />
-      </View>
-
-      <JoinButton title="JOIN" />
-
-      <View style={styles.details}>
-        <View style={styles.detailsrow}>
-          <Ionicons name="person-outline" size={24} color="black" />
-          <Text style={themes.time}>By Chef Bruno</Text>
+        <View style={styles.photo}>
+            <Image source={{uri: 'https://www.jessicagavin.com/wp-content/uploads/2017/07/meat-lasagna-1200.jpg'}} style={styles.image} />
         </View>
-        <View style={styles.detailsrow}>
-          <FontAwesome5 name="calendar-alt" size={24} color="black" />
-          <Text style={themes.time}> Saturday, February 7 2022</Text>
+    
+        <View style={styles.joinBut}>
+            <JoinButton title="JOIN"/>
         </View>
-        <View style={styles.detailsrow}>
-          <FontAwesome5 name="clock" size={24} color="black" />
-          <Text style={themes.time}>7:30 - 8:30PM</Text>
+     
+
+        <View style={styles.details}>
+            <View style={styles.detailsrow}>
+            <Ionicons name="person-outline" size={24} color="black" />
+            <Text style={themes.time}> By Chef Bruno</Text>
+            </View>
+            <View style={styles.detailsrow}>
+            <FontAwesome5 name="calendar-alt" size={24} color="black" />
+            <Text style={themes.time}>  Saturday, February 7 2022</Text>
+            </View>
+            <View style={styles.detailsrow}>
+            <FontAwesome5 name="clock" size={24} color="black" />
+            <Text style={themes.time}> 7:30 - 8:30PM</Text>
+            </View>
         </View>
-      </View>
 
-      <View style={styles.center}>
-        <Text style={styles.title}>INGREDIENTS</Text>
-      </View>
+        <View style={styles.titleBox}>
+            <Text style={styles.title}>INGREDIENTS</Text>
+        </View>
 
-      <SafeAreaView style={styles.ingredients}>
-        <FlatList
-          data={DATA} // the array of data that the FlatList displays
-          renderItem={({item}) => renderItem(item)} // function that renders each item
-          keyExtractor={(item) => item.id} // unique key for each item
-        />
-      </SafeAreaView>
+        <SafeAreaView style={styles.ingredients}>
+            <FlatList
+            data={DATA} // the array of data that the FlatList displays
+            renderItem={({item}) => renderItem(item)} // function that renders each item
+            keyExtractor={(item) => item.id} // unique key for each item
+            />
+        </SafeAreaView>
       
 
     </View>
@@ -122,72 +129,90 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-evenly',
     backgroundColor: themes.bgSecondary,
+    paddingHorizontal:16
+    
   },
-  header: {
-    flex: 1,
+  header: { ///
+    flex: .8,
     width: "100%",
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    paddingLeft: 20,
-    // alignContent: 'center',
-    backgroundColor: 'red',
-  },
-  title: {
-    flex:1,
-    fontFamily: 'MontserratBold',
-    fontWeight: 'bold',
-    fontSize: 20,
-    backgroundColor: 'yellow',
-    // paddingLeft: 20,
     justifyContent: 'center',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // textAlignVertical: 'center',
-    // alignContent: 'center', 
+    backgroundColor: 'cyan',
   },
-  center: { 
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    flexDirection: 'row',
+        headerL: {
+            flex: 0.1,
+        },
+        BackButtonBox: {
+            //paddingLeft: 12,
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        headerM: {
+            flex: 0.8,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        title: { 
+            fontFamily: 'MontserratBold',
+            fontWeight: 'bold',
+            fontSize: 20,
+        },
+
+        headerR: {
+            flex: 0.1,
+        },
+
+
+  photo: { ///
+    flex: 3,
+    backgroundColor: 'pink',
+  },
+        image: {
+            width: undefined,
+            height: '100%',
+            aspectRatio: 1,
+            borderRadius: 15,
+            alignSelf: 'center',
+        },
+
+  joinBut: { ///
+    flex: .8,
     justifyContent: 'center',
-    flexDirection: 'column',
+    backgroundColor: 'cyan',
   },
-  photo: {
-    flex: 5,
-  },
-  image: {
-    width: undefined,
-    height: '100%',
-    aspectRatio: 1,
-    borderRadius: 15,
-    alignSelf: 'center',
-  },
-  details: {
-    flex: 2,
+
+  details: { ///
+    backgroundColor: 'pink',
+    flex: 1.3,
     alignItems: 'flex-start',
     justifyContent: 'space-around',
-    backgroundColor: themes.bgPrimary,
-    marginLeft: 20,
-    marginRight: 20,
+    //backgroundColor: themes.bgPrimary,
     borderRadius: 20,
     padding: 6,
+    //width: '100%',
   },
-  detailsrow: {
-    flexDirection: 'row',
-    alignContent: 'center',
-    padding: 3,
-    margin: 5,
+        detailsrow: {
+            flexDirection: 'row',
+            alignContent: 'center',
+            padding: 3,
+            margin: 5,
+        },
+
+  titleBox: { ///
+    flex: .5,
+    backgroundColor: 'cyan',
+    justifyContent: 'center',
   },
-  ingredients: {
-    flex: 6,
+
+  ingredients: { ////
+    flex: 3,
   },
-  item: {
-    marginVertical: 8,
-    marginHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: themes.bgPrimary,
-    borderRadius: 8,
-  },
+    item: {
+        //marginVertical: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: themes.bgPrimary,
+        //borderRadius: 8,
+    },
 });
