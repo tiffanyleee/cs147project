@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     item: {
         backgroundColor: 'white',
         padding: 5,
-        marginVertical: 8,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     textSection: {
         flex: 1,
+        padding: 5,
     },
     name: {
         fontSize: 15,

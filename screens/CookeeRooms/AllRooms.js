@@ -8,6 +8,7 @@ import {
     Button,
     TextInput,
     FlatList,
+    SafeAreaView
 } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { db } from "../../firebase";
@@ -16,6 +17,8 @@ import themes from '../../assets/themes/themes';
 import { ListItem, SearchBar } from "react-native-elements";
 import { ActivityIndicator } from 'react-native';
 import RoomItem from './RoomItem';
+import FilterButton from './FilterButton';
+import SortButton from './SortButton';
 
 const DATA = ['Test1', 'califonria', 'three'];
 // const DATA2 = [{Day: 'Test1', Room: 'italin'}, {Day: 'califonria' }, {Day :'three'}];
@@ -23,7 +26,6 @@ const DATA = ['Test1', 'califonria', 'three'];
 
 export default function AllRooms({ navigation }) {
     // loading data from firebase
-    //////////////////////
     // Get all documents from a collection
     const getAllDocuments = async () => {
         let allDocs = await getDocs(collection(db, "rooms"));
@@ -53,7 +55,6 @@ export default function AllRooms({ navigation }) {
 
     //////////////////////
     // working on text input here
-
     const [text, setText] = useState('');
     const [filteredData, setFilterData] = useState([]);
     const filterSearchResults = (value) => {
@@ -69,39 +70,13 @@ export default function AllRooms({ navigation }) {
     };
 
     const renderItem = (item) => (
-        <>
-            <RoomItem
-                room={item.Room}
-                day={item.Day}
-                imageurl={item.Image}
-                screen={item.Screen}
-            />
-        </>
+        <RoomItem
+            room={item.Room}
+            day={item.Day}
+            imageurl={item.Image}
+            screen={item.Screen}
+        />
     );
-
-    // function renderHeader() {
-    //     return (
-    //       <View
-    //         style={{
-    //           backgroundColor: '#fff',
-    //           padding: 10,
-    //           marginVertical: 10,
-    //           borderRadius: 20
-    //         }}
-    //       >
-    //         <TextInput
-    //           autoCapitalize="none"
-    //           autoCorrect={false}
-    //           clearButtonMode="always"
-    //           value={query}
-    //           onChangeText={queryText => handleSearch(queryText)}
-    //           placeholder="Search"
-    //           style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
-    //         />
-    //       </View>
-    //     );
-    //   }
-    //const [query, setQuery] = useState('');
 
     return (
         <View style={styles.container}>
@@ -112,13 +87,7 @@ export default function AllRooms({ navigation }) {
                     <SearchBar style={styles.searchBar}
                     placeholder="Search Here..."
                     /> */}
-                    {/*<View > 
-                    <Image source={require('../../assets/rooms/magnifyGlass.png')} style={styles.magnifyGlass} />
-                </View>*/}
-                    {/* </View>
-                <View style={styles.flexChild3}> 
-                <Button title= "sort" style={styles.sortButton}></Button> 
-                <Button title= "filter" style={styles.filterButton}></Button> */}
+
             </View>
             <View style={styles.search}>
                 <TextInput
@@ -129,10 +98,15 @@ export default function AllRooms({ navigation }) {
                     onChangeText={filterSearchResults}
                     value={text}
                     placeholder="Search"
-                    style={{ backgroundColor: themes.searchBar, paddingHorizontal: 20, height: 40, borderRadius: 15}}
+                    style={{ backgroundColor: themes.searchBar, paddingHorizontal: 20, height: 40, borderRadius: 15 }}
                 />
+                <View style={styles.searchButtons}>
+                    <FilterButton title="Filter" />
+                    <SortButton title="Sort"/>
+                </View>
             </View>
-            <View sytle={styles.rooms}>
+
+            <SafeAreaView style={styles.rooms}>
                 {/* create a flatlist of all the rooms, the data, and the image */}
                 <FlatList
                     // ListHeaderComponent={renderHeader}
@@ -140,7 +114,7 @@ export default function AllRooms({ navigation }) {
                     renderItem={({ item }) => renderItem(item)} // function that renders each item
                     keyExtractor={(item) => item.id} // unique key for each item
                 />
-            </View>
+            </SafeAreaView>
         </View>
     );
 }
@@ -150,26 +124,36 @@ const styles = StyleSheet.create({
         flex: 1, // take up entire screen
         backgroundColor: themes.bgSecondary,
         padding: 8,
+        justifyContent: 'space-evenly',
     },
     top: {//background container for three red boxes
         display: "flex",
-        flex: 1, // take up entire screen
+        flex: 0.5, // take up entire screen
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
+        width: "100%",
     },
     search: {
-        flex: 1,
+        flex: 1.3,
         alignItems: "stretch",
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
+        width: "100%",
+        flexDirection: 'column',
+    },
+    searchButtons: { 
+        padding: 10,
+        justifyContent: 'flex-end',
+        flexDirection: 'row',
+    },
+    rooms: {
+        flex: 8,
+        width: "100%",
+        padding: 8,
     },
     text: {
         fontSize: 14,
         color: themes.text,
-    },
-    rooms: {
-        flex: 5,
-        backgroundColor: 'pink',
     },
     input: {
         height: 40,
@@ -179,7 +163,8 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     flexChild3: { //the thre boxes
-        flex: 0.3,
+        // flex: 0.3,
+        backgroundColor: 'green',
         width: '100%',
         height: '20%',
         padding: 4,
