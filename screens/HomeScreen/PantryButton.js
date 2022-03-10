@@ -21,7 +21,7 @@ export default function CookeeRoomsButton({ title }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 4,
+        flex: 3,
         paddingRight: 10,
     },
     button: {

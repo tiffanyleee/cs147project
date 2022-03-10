@@ -17,6 +17,7 @@ import KoreanRoom from './screens/CookeeRooms/KoreanRoom';
 import ThaiRoom from './screens/CookeeRooms/ThaiRoom';
 
 import CalendarRoom from './screens/CalendarScreen/CalendarHome';
+import CalendarRoomWeek from './screens/CalendarScreen/CalendarHomeWeek';
 
 import PantryScreen from './screens/PantryScreens/PantryScreen';
 
@@ -289,9 +290,30 @@ export default function App() {
           name="CalendarHome"
           component={CalendarRoom}
           options={({ navigation }) => ({
-            headerTitle: "COOKEE ROOMS",
+            headerTitle: "CALENDAR",
             headerStyle: { backgroundColor: 'black' },
             headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+        <Stack.Screen
+          name="CalendarHomeWeek"
+          component={CalendarRoomWeek}
+          options={({ navigation }) => ({
+            headerTitle: "CALENDAR",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            animationEnabled: false,
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>

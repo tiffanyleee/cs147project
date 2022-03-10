@@ -42,7 +42,9 @@ export default function PantryScreen({ navigation }) {
             <Text style={themes.header}>ADD INGREDIENTS</Text>
             <Text style={themes.text}>Click the + to tell cookee what is in your pantry</Text>
           </View>
-          <PlusButton title="+" />
+          <View style={{flex: 1, paddingRight: 10}}>
+            <PlusButton title="+" />
+          </View>
         </View>
         <View style={styles.mid2}>
           <Text>test</Text>
@@ -109,9 +111,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   ingredients: {
-    padding: 3,
+    padding: 4,
     flex: 4,
     flexDirection: 'column',
+    margin: 5, 
   },
   mid2: {
     flex: 1, 

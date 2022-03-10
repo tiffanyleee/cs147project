@@ -13,7 +13,7 @@ export default function Menu({ route, navigation }) {
         {
           id: '2',
           name: 'CALENDAR',
-          nav: 'ScreenOne',
+          nav: 'CalendarHome',
         },
         {
           id: '3',
