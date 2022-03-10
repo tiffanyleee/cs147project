@@ -9,21 +9,24 @@ import {
 import themes from '../../assets/themes/themes';
 import { useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons'; 
+import { Linking } from 'react-native';
 
 
 // export default function RoomItem({ room, id, imagePath }) {
 export default function RecipieItem({ title, rating, imageurl, time}) {
-    const navigation = useNavigation(); 
+    // const navigation = useNavigation(); 
 
     return (
         <View style={styles.item}>
-            <Pressable style={styles.child1} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}>
+            <Pressable style={styles.child1} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}> 
                 <Image style={styles.image} source={{uri : imageurl}} /> 
+                {/* <Text>{imageurl}</Text> */}
             </Pressable>
             <View style={styles.child2} style={styles.textSection}>
                 <Pressable onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}>
                     <Text > {title}</Text>
                     <Text > {rating}</Text>
+                    <Text > {time}</Text>
                 </Pressable>
             </View>
             <View style={styles.child3}>
@@ -49,7 +52,7 @@ const styles = StyleSheet.create({
     },
     child3: {
         flex: .2,
-    }
+    },
     // textSection: {
     //     flex: 1,
     //     padding: 5,
@@ -65,12 +68,12 @@ const styles = StyleSheet.create({
     //     borderWidth: 1,
     //     padding: 4,
     // },
-    // image: {
-    //     height: 100,
-    //     width: 100,
-    //     overflow: 'hidden',
-    //     margin: 5,
-    //     resizeMode: 'contain',
-    //     borderRadius: 15,
-    // },
+    image: {
+        height: 100,
+        width: 100,
+        overflow: 'hidden',
+        margin: 5,
+        resizeMode: 'contain',
+        borderRadius: 15,
+    },
 });

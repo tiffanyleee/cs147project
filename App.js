@@ -289,7 +289,7 @@ export default function App() {
           name="CalendarHome"
           component={CalendarRoom}
           options={({ navigation }) => ({
-            headerTitle: "COOKEE ROOMS",
+            headerTitle: "CALENDAR",
             headerStyle: { backgroundColor: 'black' },
             headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
+import { Linking } from 'react-native';
 import { Themes } from "../../assets/themes";
 import themes from '../../assets/themes/themes';
 import { ImageBackground } from 'react-native';
@@ -63,18 +64,25 @@ export default function PantryScreen({ navigation }) {
             setFilterData(DATA);
         } else {
             // else filter by states that include text
-            setFilterData(DATA.filter((room) => room.Room.toLowerCase().includes(value.toLowerCase())));
+            setFilterData(DATA.filter((recipie) => recipie.title.toLowerCase().includes(value.toLowerCase())));
         }
     };
 
     const renderItem = (item) => (
         <RecipieItem
-            title={item.Title}
-            rating={item.Rating}
-            imageurl={item.Image}
-            time={item.Time}
+            title={item.title}
+            rating={item.rating}
+            imageurl={item.imageurl}
+            time={item.time}
         />
     );
+  
+    
+  // use effect for the firebase access
+    useEffect(() => {
+      setFilterData(DATA);
+    }, [])
+  
   return (
     <View style={styles.PantryScreen}>
       <ImageBackground source={require('../../assets/pantryimg.jpeg')}style={styles.top}>
@@ -110,7 +118,7 @@ export default function PantryScreen({ navigation }) {
           </View> 
         </View>
         <View style={styles.mid3}>
-          <Text>test</Text>
+          {/* <Text>test</Text> */}
         </View>
       </View>
 
@@ -118,7 +126,7 @@ export default function PantryScreen({ navigation }) {
         {/* create a flatlist of all the rooms, the data, and the image */}
         <FlatList
             // ListHeaderComponent={renderHeader}
-            data={filteredData} // the array of data that the FlatList displays
+            data = {filteredData}    // the array of data that the FlatList displays
             renderItem={({ item }) => renderItem(item)} // function that renders each item
             keyExtractor={(item) => item.id} // unique key for each item
         />
@@ -131,10 +139,11 @@ export default function PantryScreen({ navigation }) {
 const styles = StyleSheet.create({
   PantryScreen: {
     flex: 1,
+    
     // flexDirection: 'column',
     // alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: 'red'
+    //backgroundColor: 'red'
     //backgroundColor: themes.bgSecondary,
   },
   text: {
@@ -166,7 +175,7 @@ const styles = StyleSheet.create({
     backgroundColor: themes.bgSecondary,
     flex: 1,
     width: '100%',
-    padding: 8,
+    padding: 12,
     justifyContent: 'center',
   },
   mid1: {
@@ -185,7 +194,8 @@ const styles = StyleSheet.create({
   },
   mid2: {
     flex: 1, 
-    backgroundColor: 'pink',
+    //backgroundColor: 'pink',
+
   },
   search: {
     flex: 1.3,
@@ -193,15 +203,17 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     width: "100%",
     flexDirection: 'column',
+    justifyContent: 'center',
 },
   mid3: {
     flex: 1,
-    backgroundColor: 'green',
+    //backgroundColor: 'green',
   },
   bottom: {
     display: 'flex',
-    backgroundColor: 'blue',
+    //backgroundColor: 'blue',
     flex: 1,
+    //padding: 30,
   
   },
   pantryItems: {
