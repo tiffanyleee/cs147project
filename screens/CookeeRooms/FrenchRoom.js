@@ -19,19 +19,19 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 
-export default function ItalianRoom({ navigation }) {
+export default function FrenchRoom({ navigation }) {
     const DATA = [
         {
             id: '1',
-            title: "16oz Lasagna Noodles",
+            title: "1lb snails",
         },
         {
             id: '2',
-            title: '4 Cups Mozzarella',
+            title: '2 cups wine',
         },
         {
             id: '3',
-            title: '36oz Pasta Sauce',
+            title: '1 onion',
         },
         {
             id: '4',
@@ -39,26 +39,22 @@ export default function ItalianRoom({ navigation }) {
         },
         {
             id: '5',
-            title: '1lb Ground Beef',
-        },
-        {
-            id: '6',
             title: '0.5 Cup Parmesan',
         },
         {
-            id: '7',
+            id: '6',
             title: 'Salt',
         },
         {
-            id: '8',
+            id: '7',
             title: 'Pepper',
         },
         {
-            id: '9',
+            id: '8',
             title: 'Garlic',
         },
         {
-            id: '10',
+            id: '9',
             title: 'Herbs',
         },
     ];
@@ -85,14 +81,14 @@ export default function ItalianRoom({ navigation }) {
                 </View>
 
                 <View style={styles.headerM}>
-                    <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+                    <Text style={styles.title}>FRENCH NIGHT: ESCARGOT</Text>
                 </View>
                 <View style={styles.headerR}>
                 </View>
             </View>
 
             <View style={styles.photo}>
-                <Image source={{ uri: 'https://www.jessicagavin.com/wp-content/uploads/2017/07/meat-lasagna-1200.jpg' }} style={styles.image} />
+                <Image source={{ uri: 'https://images.squarespace-cdn.com/content/v1/591f30079de4bb8e245f5b8b/1543616281849-9JQ7SIRLT5ISZ7U3V48C/103_peconic_escargot.jpg?format=1000w' }} style={styles.image} />
             </View>
 
             <View style={styles.joinBut}>
@@ -103,15 +99,15 @@ export default function ItalianRoom({ navigation }) {
             <View style={styles.details}>
                 <View style={styles.detailsrow}>
                     <Ionicons name="person-outline" size={24} color="black" />
-                    <Text style={themes.time}> By Chef Bruno</Text>
+                    <Text style={themes.time}> By Chef Bradley</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="calendar-alt" size={24} color="black" />
-                    <Text style={themes.time}>  Saturday, February 7 2022</Text>
+                    <Text style={themes.time}>  Friday, February 6 2022</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="clock" size={24} color="black" />
-                    <Text style={themes.time}> 7:30 - 8:30PM</Text>
+                    <Text style={themes.time}> 6:30 - 8:30PM</Text>
                 </View>
             </View>
 

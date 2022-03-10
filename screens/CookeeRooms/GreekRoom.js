@@ -19,27 +19,15 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 
-export default function ItalianRoom({ navigation }) {
+export default function GreekRoom({ navigation }) {
     const DATA = [
-        {
-            id: '1',
-            title: "16oz Lasagna Noodles",
-        },
-        {
-            id: '2',
-            title: '4 Cups Mozzarella',
-        },
-        {
-            id: '3',
-            title: '36oz Pasta Sauce',
-        },
         {
             id: '4',
             title: '1 Onion',
         },
         {
             id: '5',
-            title: '1lb Ground Beef',
+            title: '1lb Chickpeas',
         },
         {
             id: '6',
@@ -85,14 +73,14 @@ export default function ItalianRoom({ navigation }) {
                 </View>
 
                 <View style={styles.headerM}>
-                    <Text style={styles.title}>ITALIAN NIGHT: LASAGNA</Text>
+                    <Text style={styles.title}>GREEK NIGHT: FALAFEL</Text>
                 </View>
                 <View style={styles.headerR}>
                 </View>
             </View>
 
             <View style={styles.photo}>
-                <Image source={{ uri: 'https://www.jessicagavin.com/wp-content/uploads/2017/07/meat-lasagna-1200.jpg' }} style={styles.image} />
+                <Image source={{ uri: 'https://images.squarespace-cdn.com/content/v1/5f6e378c4acbe8022119165f/1625177035198-H8IVYC05ML6O24WCMMVA/PitaGreek_IG_3pitas_20201121.png?format=1000w' }} style={styles.image} />
             </View>
 
             <View style={styles.joinBut}>
@@ -103,15 +91,15 @@ export default function ItalianRoom({ navigation }) {
             <View style={styles.details}>
                 <View style={styles.detailsrow}>
                     <Ionicons name="person-outline" size={24} color="black" />
-                    <Text style={themes.time}> By Chef Bruno</Text>
+                    <Text style={themes.time}> By Chef Mars</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="calendar-alt" size={24} color="black" />
-                    <Text style={themes.time}>  Saturday, February 7 2022</Text>
+                    <Text style={themes.time}>  Monday, February 9 2022</Text>
                 </View>
                 <View style={styles.detailsrow}>
                     <FontAwesome5 name="clock" size={24} color="black" />
-                    <Text style={themes.time}> 7:30 - 8:30PM</Text>
+                    <Text style={themes.time}> 7:00 - 8:30PM</Text>
                 </View>
             </View>
 
