@@ -18,6 +18,8 @@ import themes from '../../assets/themes/themes';
 import { ImageBackground } from 'react-native';
 import PlusButton from '../../components/PlusButton';
 import RecipieItem from './RecipieItem';
+import RecpButton from './RecpButton';
+import IngButton from './IngButton';
 // import text from '../../assets/themes/text';
 // import { Feather } from '@expo/vector-icons';
 // import CalendarButton from '../HomeScreen/CalendarButton';
@@ -101,7 +103,9 @@ export default function PantryScreen({ navigation }) {
             <Text style={themes.header}>ADD INGREDIENTS</Text>
             <Text style={themes.text}>Click the + to tell cookee what is in your pantry</Text>
           </View>
-          <PlusButton title="+" />
+          <View style={{flex: 1, paddingRight: 10}}>
+            <PlusButton title="+" />
+          </View>
         </View>
         <View style={styles.mid2}>
           <View style={styles.search}>
@@ -119,6 +123,8 @@ export default function PantryScreen({ navigation }) {
         </View>
         <View style={styles.mid3}>
           {/* <Text>test</Text> */}
+          <RecpButton bgColor={themes.buttonBackground} />
+          <IngButton bgColor={themes.bgSecondary} />
         </View>
       </View>
 
@@ -188,9 +194,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   ingredients: {
-    padding: 3,
+    padding: 4,
     flex: 4,
     flexDirection: 'column',
+    margin: 5, 
   },
   mid2: {
     flex: 1, 

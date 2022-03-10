@@ -22,7 +22,7 @@ export default function CalendarButton({ title }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%'
+        width: '90%'
     },
     button: {
         //width: "90%",

@@ -81,7 +81,7 @@ export default function AllRooms({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text style={styles.text}> Join our curated community cooking experiences </Text>
+                <Text style={styles.text}> Select a curated community cooking experience </Text>
                 {/* </View>
                 <View style={styles.flexChild2}> 
                     <SearchBar style={styles.searchBar}
