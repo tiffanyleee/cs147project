@@ -12,15 +12,13 @@ import { Entypo } from '@expo/vector-icons';
 import { Linking } from 'react-native';
 
 
-// export default function RoomItem({ room, id, imagePath }) {
-export default function RecipieItem({ title, rating, imageurl, time}) {
-    // const navigation = useNavigation(); 
+
+export default function RecipeItem({ title, rating, imageurl, time}) {
 
     return (
         <View style={styles.item}>
             <Pressable style={styles.child1} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}> 
                 <Image style={styles.image} source={{uri : imageurl}} /> 
-                {/* <Text>{imageurl}</Text> */}
             </Pressable>
             <View style={styles.child2} style={styles.textSection}>
                 <Pressable onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}>
@@ -39,7 +37,6 @@ export default function RecipieItem({ title, rating, imageurl, time}) {
 const styles = StyleSheet.create({
     item: {
         backgroundColor: 'white',
-        // padding: 5,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between'

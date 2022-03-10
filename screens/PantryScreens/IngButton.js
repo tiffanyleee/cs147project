@@ -3,10 +3,9 @@ import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import themes from '../../assets/themes/themes';
 
-export default function IngButton({ textColor, bgColor }) {
-  const navigation = useNavigation();
+export default function IngButton({ bgColor, ingPressed, action}) {
   return (
-    <Pressable onPress={() => navigation.navigate('CalendarHome')}>
+    <Pressable onPress={() => {this.props.action}}>
         <View style={styles.button} backgroundColor={bgColor}>
             <Text style={styles.name} >INGREDIENTS</Text>
         </View>

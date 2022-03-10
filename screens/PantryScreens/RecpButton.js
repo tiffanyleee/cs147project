@@ -3,12 +3,11 @@ import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import themes from '../../assets/themes/themes';
 
-export default function RecpButton({ bgColor }) {
-  const navigation = useNavigation();
+export default function RecpButton({ bgColor, ingPressed, action }) {
   return (
-    <Pressable onPress={() => navigation.navigate('CalendarHomeWeek')}>
+    <Pressable onPress={() => {this.props.action}}>
         <View style={styles.button} backgroundColor={bgColor}>
-            <Text style={styles.name}>RECIPIE</Text>
+            <Text style={styles.name}>RECIPE</Text>
         </View>
     </Pressable>
   );
