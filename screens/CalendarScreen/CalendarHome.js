@@ -19,11 +19,11 @@ export default function CalendarHome({ navigation }) {
           <MonthViewButton textColor='white' bgColor={themes.bgSecondary} />
           <WeekViewButton bgColor={themes.buttonBackground} />
         </View>
-        <View style={{flexDirection: 'row'}}>
-          <View style={{ width: 60, height: 40, flexDirection: 'row' }}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+          <View style={{ width: 60, height: 40}}>
             <PlusButton />
           </View>
-          <View style={{ width: 60, height: 40, flexDirection: 'row' }}>
+          <View style={{ width: 60, height: 40}}>
             <EditButton />
           </View>
         </View>

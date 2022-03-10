@@ -4,6 +4,8 @@ import themes from '../../assets/themes/themes';
 import MonthViewButton from './MonthViewButton';
 import WeekViewButton from './WeekViewButton';
 import PlusButton from '../../components/PlusButton';
+import EditButton from './EditButton';
+
 
 export default function CalendarHomeWeek({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -16,8 +18,13 @@ export default function CalendarHomeWeek({ navigation }) {
                     <MonthViewButton bgColor={themes.buttonBackground} />
                     <WeekViewButton bgColor={themes.bgSecondary} />
                 </View>
-                <View style={{ width: 60, height: 40 }}>
-                    <PlusButton title="+" />
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <View style={{ width: 60, height: 40 }}>
+                        <PlusButton />
+                    </View>
+                    <View style={{ width: 60, height: 40 }}>
+                        <EditButton/>
+                    </View>
                 </View>
             </View>
 
@@ -52,20 +59,6 @@ export default function CalendarHomeWeek({ navigation }) {
                     </View>
                 </Pressable>
             </View>
-
-            {/* <View style={styles.top}> */}
-            {/* <Text style={themes.header}>MEAL PLANS</Text> */}
-            {/* <View style={styles.view}>
-                    <MonthViewButton bgColor={themes.buttonBackground} />
-                    <WeekViewButton bgColor={themes.bgSecondary} />
-                </View> */}
-            {/* <PlusButton title="+"/> */}
-            {/* </View> */}
-            {/* <View style={styles.calendar}>
-                <Pressable onPress={() => navigation.navigate('CalendarHome')}>
-                    <Image source={require('../../assets/rooms/Calendar.png')} style={styles.image} />
-                </Pressable>
-            </View> */}
         </View>
     );
 }
