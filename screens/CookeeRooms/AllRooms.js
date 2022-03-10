@@ -20,8 +20,8 @@ import RoomItem from './RoomItem';
 import FilterButton from './FilterButton';
 import SortButton from './SortButton';
 
-const DATA = ['Test1', 'califonria', 'three'];
-// const DATA2 = [{Day: 'Test1', Room: 'italin'}, {Day: 'califonria' }, {Day :'three'}];
+
+
 
 
 export default function AllRooms({ navigation }) {

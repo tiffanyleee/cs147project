@@ -27,6 +27,7 @@ export default function RoomItem({ room, day, imageurl, screen }) {
                 </Pressable>
             </View>
       {/* <Image source={imagePath} style={styles.image} /> */}
+            
         </View>
     );
 }

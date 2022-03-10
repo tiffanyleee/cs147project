@@ -7,7 +7,8 @@ import { Linking } from 'react-native';
 export default function JoinButton({ title }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => Linking.openURL('https://stanford.zoom.us/my/lights?pwd=TmxXUXNTMzVSQ2FINTBiZjRMa3d4QT09')}>
+    // <Pressable onPress={() => Linking.openURL('https://stanford.zoom.us/my/lights?pwd=TmxXUXNTMzVSQ2FINTBiZjRMa3d4QT09')}>
+    <Pressable onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}>
         <View style={styles.button}>
             <Text style={[styles.name]}>{title}</Text>
         </View>
