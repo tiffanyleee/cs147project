@@ -5,12 +5,10 @@ import MonthViewButton from './MonthViewButton';
 import WeekViewButton from './WeekViewButton';
 import PlusButton from '../../components/PlusButton';
 
-
-
 export default function CalendarHomeWeek({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
 
-    return (    
+    return (
         <View style={styles.container}>
             <View style={styles.top}>
                 <Text style={themes.header}>MEAL PLANS</Text>
@@ -18,7 +16,9 @@ export default function CalendarHomeWeek({ navigation }) {
                     <MonthViewButton bgColor={themes.buttonBackground} />
                     <WeekViewButton bgColor={themes.bgSecondary} />
                 </View>
-                {/* <PlusButton title="+"/> */}
+                <View style={{ width: 60, height: 40 }}>
+                    <PlusButton title="+" />
+                </View>
             </View>
 
             <Modal
@@ -32,13 +32,13 @@ export default function CalendarHomeWeek({ navigation }) {
             >
                 <View style={styles.modal}>
                     <View style={styles.modalView}>
-                        <Text style={themes.header}>ITALIAN COOKEE ROOM</Text>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}
                         >
                             <Text style={styles.textStyle}>X</Text>
                         </Pressable>
+                        <Image source={require('../../assets/rooms/DayDetails.png')} style={styles.details} />
                     </View>
                 </View>
             </Modal>
@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderColor: 'black',
         borderWidth: 2,
-        padding: 35,
-        alignItems: "center",
+        padding: 20,
+        alignItems: "flex-end",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -118,16 +118,18 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5
     },
+    details: {
+        width: '100%',
+        height: 140,
+        padding: 10,
+    },
     button: {
         borderRadius: 20,
         padding: 10,
         elevation: 2
     },
-    buttonOpen: {
-        backgroundColor: "#F194FF",
-    },
     buttonClose: {
-        backgroundColor: "#2196F3",
+        backgroundColor: themes.buttonBackground,
     },
     textStyle: {
         color: "white",
