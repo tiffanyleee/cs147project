@@ -13,15 +13,19 @@ import { Linking } from 'react-native';
 
 
 
-export default function RecipeItem({ title, rating, imageurl, time}) {
+export default function RecipeItem({ title, rating, imageurl, recipeLink, time}) {
 
     return (
         <View style={styles.item}>
-            <Pressable style={styles.child1} onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}> 
-                <Image style={styles.image} source={{uri : imageurl}} /> 
-            </Pressable>
-            <View style={styles.child2} style={styles.textSection}>
-                <Pressable onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}>
+            <View style={styles.child1}>
+                <Pressable onPress={() => Linking.openURL(recipeLink)}> 
+                    <Image style={styles.image} source={{uri : imageurl}} /> 
+                </Pressable>
+
+            </View>
+           
+            <View style={styles.textSection}>
+                <Pressable onPress={() => Linking.openURL(recipeLink)}>
                     <Text > {title}</Text>
                     <Text > {rating}</Text>
                     <Text > {time}</Text>
@@ -36,24 +40,26 @@ export default function RecipeItem({ title, rating, imageurl, time}) {
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: 'white',
+        backgroundColor: themes.bgSecondary,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     child1: {
-        flex: .2,
-    },
-    child2: {
-        flex: .6
+        flex: 1,
+        justifyContent: 'center',
+        padding: 3,
     },
     child3: {
-        flex: .2,
+        flex: .3,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    // textSection: {
-    //     flex: 1,
-    //     padding: 5,
-    // },
+    textSection: {
+        flex: 2,
+        padding: 5,
+        justifyContent: 'center',
+    },
     // name: {
     //     fontSize: 15,
     //     fontWeight: 'bold',
