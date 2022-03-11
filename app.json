@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "cookeeapp",
     "name": "nested-nav-demo",
     "slug": "nested-nav-demo",
     "version": "1.0.0",

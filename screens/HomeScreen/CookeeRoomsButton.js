@@ -20,7 +20,7 @@ export default function CookeeRoomsButton({ title }) {
 
 const styles = StyleSheet.create({
     container: {
-        width: '70%'
+        width: '100%'
     },
     button: {
         // width: "100%",

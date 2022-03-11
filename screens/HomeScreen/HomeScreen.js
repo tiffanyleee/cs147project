@@ -28,7 +28,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.homeScreen}>
       <View style={styles.homeCal}>
-        <CalendarButton title="THURSDAY, FEBRUARY 5" />
+        <CalendarButton title="FRIDAY, MARCH 10" />
         <View style={styles.calItem}>
           <View style={styles.mealRow}>
             <Text style={themes.header}>BREAKFAST</Text>
