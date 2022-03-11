@@ -11,42 +11,82 @@ import themes from '../../../assets/themes/themes';
 export default function AddIngr({ navigation }) {
   return (
     <View style={styles.main}>
-      <View style={styles.left}>
-        <Pressable style={styles.BackButtonBox} onPress={() => navigation.goBack()}>
-          <Ionicons name="chevron-back" size={35} color="black" />
-        </Pressable>
+      <View style={styles.topHalf}>
+        <View style={styles.left}>
+          <Pressable style={styles.BackButtonBox} onPress={() => navigation.goBack()}>
+            <Ionicons name="chevron-back" size={35} color="black" />
+          </Pressable>
+        </View>
+        <View style={styles.mid}>
+          <View style={styles.midCol}>
+            <View style={styles.topCol}>
+              <Pressable style={styles.press} onPress={() => navigation.navigate('ListenIngr')}>
+              <Image style= {styles.image} source={require('../../../assets/cookeeQ.png')} />
+              </Pressable>
+            </View>
+            <View style={styles.centerCol}>
+              <Text style={themes.pantryText} >TAP COOKEE TO START DICTATING INGREDIENTS OR SELECT TEXT BUTTON TO TYPE INGREDIENTS</Text>
+            </View>
+          </View>
+          
+        </View>
+        <View style={styles.right} />
+
       </View>
-      <View style={styles.mid}>
-        <View style={styles.midCol}>
-          <View style={styles.topCol}>
-            <Pressable onPress={() => navigation.navigate('ListenIngr')}>
-              <Image source={require('../../../assets/pantry/CookeeOff.png')} />
-            </Pressable>
-          </View>
-          <View style={styles.centerCol}>
-            <Text style={themes.pantryText} >TAP COOKEE TO START DICTATING INGREDIENTS OR SELECT THE PENCIL TO TYPE INGREDIENTS</Text>
-          </View>
+      <View style={styles.bottomHalf}>
           <View style={styles.botCol}>
-            <MicBut bgColor={themes.bgSecondary} />
-            <TypeBut bgColor={themes.buttonBackground} />
+            <MicBut style={styles.mic} bgColor={themes.bgSecondary} />
+            <TypeBut style={styles.voz} bgColor={themes.buttonBackground} />
           </View>
         </View>
-      </View>
-      <View style={styles.right} />
+
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  // mic: {
+  //   justifyContent: 'flex-end',
+  //   alignItems: 'flex-end',
+  // },
+  image: {
+    // width: undefined,
+    // width: '100%',
+    height: '78%',
+    aspectRatio: 1,
+    borderRadius: 40,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    overflow: 'hidden',
+},
+  bottomHalf: {
+    flex: .75,
+    flexDirection: 'column',
+    // display: 'flex',
+    // flex: 1,
+    // flexDirection: 'column',
+    // backgroundColor: 'green',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+  },
+  topHalf: {
+    flex: 1.6,
+    flexDirection: 'row',
+    // display: 'flex',
+    // flex: 1,
+    // flexDirection: 'row',
+    // backgroundColor: 'purple'
+  },
   main: {
     display: 'flex',
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     backgroundColor: themes.bgSecondary,
   },
   left: {
     flex: .1,
-    //backgroundColor: 'red',
+    // backgroundColor: 'red',
     paddingTop: 12,
     paddingLeft: 12,
   },
@@ -59,27 +99,29 @@ const styles = StyleSheet.create({
   },
   midCol: {
     flex: 1,
-    flexDirection:'column',
-  }, 
+    flexDirection: 'column',
+  },
   topCol: {
-    flex: .45,
-    flexDirection:'column',
-    justifyContent: 'center',
+    flex: 4,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-  }, 
+    paddingTop:60,
+  },
   centerCol: {
-    flex: .1,
-    flexDirection:'column',
-    justifyContent: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-  }, 
+  },
   botCol: {
     flex: .45,
-    flexDirection:'row',
-    alignItems: 'center',
-    justifyContent:'space-between',
-    paddingHorizontal: 20,
-  }, 
+    // flexDirection: 'row',
+    // alignItems: 'center',
+    // justifyContent: 'space-between',
+    // // paddingHorizontal: 20,
+  },
+
 });
 
 

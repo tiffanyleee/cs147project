@@ -7,10 +7,10 @@ import { Feather } from '@expo/vector-icons';
 export default function MicBut({ bgColor }) {
     const navigation = useNavigation();
     return (
-        <Pressable onPress={() => navigation.navigate('AddIngr')}>
+        <Pressable style= {styles.press} onPress={() => navigation.navigate('AddIngr')}>
             <View style={styles.button} backgroundColor={bgColor}>
                 {/* <Feather name="mic" size={45} color="black" /> */}
-                <Text>
+                <Text style={styles.text}>
                     VOICE
                 </Text>
               
@@ -20,20 +20,43 @@ export default function MicBut({ bgColor }) {
 }
 
 const styles = StyleSheet.create({
+    press: {
+        // width: '50%',
+        // width: 130,
+        // backgroundColor: 'pink',
+    },
     button: {
-        // width: "100%",
+        // width: "60%",
+        width: 100,
+        // height:85,
         flexDirection: "row",
         justifyContent: "center",
         shadowColor: 'black',
         shadowOpacity: 0.3,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
-        borderRadius: 35,
+        borderTopLeftRadius: 35,
+        borderBottomStartRadius: 35,
+        // borderBottomEndRadius
+        // borderRadius: 1px 0, 0, 4px;
+        // borderRadius: 35,
         borderColor: themes.buttonBackground,
         borderWidth: 1,
-        paddingHorizontal: 25,
-        paddingVertical: 20,
+        // paddingHorizontal: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingVertical: 15,
         alignItems: 'center',
-        margin: 5,
+        // margin: 5,
     },
+
+    text: {
+        fontSize: 19,
+        fontFamily: 'MontserratSemiBold',
+        // padding: 5,
+        textAlignVertical: 'center',
+        textAlign: 'center',
+        justifyContent: 'center',
+        color: "black",
+    }
 });

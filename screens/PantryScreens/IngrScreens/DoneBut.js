@@ -9,10 +9,10 @@ import { Feather } from '@expo/vector-icons';
 export default function DoneBut() {
   const navigation = useNavigation();
   return (
-        <Pressable onPress={() => navigation.navigate('PantryScreen')}>
+        <Pressable style={styles.press} onPress={() => navigation.navigate('PantryScreen')}>
             <View style={styles.button}>
                 {/* <Text style={styles.dButText}>DONE</Text> */}
-                <Feather name="check" size={24} color="black" />
+                <Feather name="check" size={50} color="white" />
               
             </View>
         </Pressable>
@@ -20,6 +20,11 @@ export default function DoneBut() {
 }
 
 const styles = StyleSheet.create({
+    press: {
+        // width: '50%',
+        // width: 130,
+        // backgroundColor: 'pink',
+    },
     button: {
         // width: "100%",
         flexDirection: "row",
@@ -32,8 +37,8 @@ const styles = StyleSheet.create({
         backgroundColor: themes.buttonBackground,
         borderColor: themes.buttonBackground,
         borderWidth: 1,
-        paddingHorizontal: 25,
-        paddingVertical: 20,
+        paddingHorizontal: 30,
+        paddingVertical: 15,
         alignItems: 'center',
         margin: 5,
     },

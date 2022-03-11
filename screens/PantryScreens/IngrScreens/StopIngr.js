@@ -50,12 +50,12 @@ export default function StopIngr({ navigation }) {
       <View style={styles.mid}>
 
         <View style={styles.mid1}>
-          <Pressable onPress={() => navigation.navigate('ListenIngr')}>
-            <Image source={require('../../../assets/pantry/CookeeOff.png')} />
+          <Pressable style={styles.press} onPress={() => navigation.navigate('ListenIngr')}>
+            <Image style= {styles.image} source={require('../../../assets/cookeeQ.png')} />
           </Pressable>
         </View>
         <View style={styles.mid2}>
-          <Text style={themes.pantryText}>TAP COOKEE TO RESUME VOICE TO TEXT OR TAP INGREDIENT TO EDIT</Text>
+          <Text style={themes.pantryText}>TAP COOKEE TO RESUME VOICE TO TEXT OR TAP AN INGREDIENT TO EDIT</Text>
 
         </View>
 
@@ -85,11 +85,26 @@ export default function StopIngr({ navigation }) {
 {/* // placeholderTextColor={'#283'} */ }
 
 const styles = StyleSheet.create({
+  // press:{
+  //   backgroundColor:'pink',
+  // },
+  image: {
+    // width: undefined,
+    // width: '.02%',
+    height: '90%',
+    aspectRatio: 1,
+    borderRadius: 40,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    overflow: 'hidden',
+},
   container: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
     backgroundColor: themes.bgSecondary,
+    
+    // backgroundColor: 'purple',
   },
   left: {
     flex: .1,
@@ -98,7 +113,7 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
   },
   mid: {
-
+    // backgroundColor: 'red',
     flex: .8,
   },
   right: {
@@ -110,24 +125,27 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   mid1: {
-    flex: .45,
+    flex: .395,
     flexDirection:'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 60,
     alignItems: 'center',
   },
   mid2: {
-    flex: .1,
+    flex: .08,
     flexDirection:'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   mid3: {
-    flex: .3,
+    flex: .35,
  
     
   },
   mid4: {
-    flex: .1,
+
+    flex: .12,
+    // backgroundColor: 'green',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',

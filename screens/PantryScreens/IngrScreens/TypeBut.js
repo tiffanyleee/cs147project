@@ -8,10 +8,10 @@ import MicBut from './MicBut';
 export default function TypeBut({ bgColor }) {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('TypeIngr')}>
+    <Pressable style={styles.press} onPress={() => navigation.navigate('TypeIngr')}>
         <View style={styles.button} backgroundColor={bgColor}>
             {/* <SimpleLineIcons name="pencil" size={45} color="black" /> */}
-            <Text>
+            <Text style={styles.text}>
               TEXT
             </Text>
         </View>
@@ -20,22 +20,41 @@ export default function TypeBut({ bgColor }) {
 }
 
 const styles = StyleSheet.create({
+  press: {
+    // width: 130,
+    // backgroundColor: 'cyan',
+    // justifyContent:'flex-end',
+},
     button: {
-        // width: "100%",
+        // width: "75%",
+        borderTopLeftRadius: 35,
+        borderBottomStartRadius: 35,
+        width: 100,
+        // height:85,
         flexDirection: "row",
         justifyContent: "center",
         shadowColor: 'black',
         shadowOpacity: 0.3,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
-        borderRadius: 35,
+        // borderRadius: 35,
         borderColor: themes.buttonBackground,
         borderWidth: 1,
-        paddingHorizontal: 25,
-        paddingVertical: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingVertical: 15,
         alignItems: 'center',
-        margin: 5,
+        // margin: 5,
         borderColor: themes.buttonBackground,
     },
+    text: {
+      fontSize: 19,
+      fontFamily: 'MontserratSemiBold',
+      // padding: 5,
+      textAlignVertical: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
+      color: "black",
+  }
 
 });
