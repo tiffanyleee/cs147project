@@ -10,42 +10,76 @@ import themes from '../../../assets/themes/themes';
 
 export default function AddIngr({ navigation }) {
   return (
-    <View>
-      <Pressable style={styles.BackButtonBox} onPress={() => navigation.goBack()}>
-        <Ionicons name="chevron-back" size={35} color="black" />
-      </Pressable>
-      <Pressable onPress={() => navigation.navigate('ListenIngr')}>
-        <Image source={require('../../../assets/pantry/CookeeOff.png')} />
-      </Pressable>
-      {/* Image source={require('../../assets/rooms/italian.png')} */}
-      <Text>TAP COOKEE TO START DICTATING INGREDIENTS OR SELECT THE PENCIL TO TYPE INGREDIENTS</Text>
-      <MicBut bgColor={themes.bgSecondary} />
-      <TypeBut bgColor={themes.buttonBackground}/>
-
-
-
-      {/* width={48} height={48} >  */}
-
+    <View style={styles.main}>
+      <View style={styles.left}>
+        <Pressable style={styles.BackButtonBox} onPress={() => navigation.goBack()}>
+          <Ionicons name="chevron-back" size={35} color="black" />
+        </Pressable>
+      </View>
+      <View style={styles.mid}>
+        <View style={styles.midCol}>
+          <View style={styles.topCol}>
+            <Pressable onPress={() => navigation.navigate('ListenIngr')}>
+              <Image source={require('../../../assets/pantry/CookeeOff.png')} />
+            </Pressable>
+          </View>
+          <View style={styles.centerCol}>
+            <Text style={themes.pantryText} >TAP COOKEE TO START DICTATING INGREDIENTS OR SELECT THE PENCIL TO TYPE INGREDIENTS</Text>
+          </View>
+          <View style={styles.botCol}>
+            <MicBut bgColor={themes.bgSecondary} />
+            <TypeBut bgColor={themes.buttonBackground} />
+          </View>
+        </View>
+      </View>
+      <View style={styles.right} />
     </View>
-    // <View style={styles.screenTwo}>
-    //   <Text style={styles.screenTwoText}>Screen Two</Text>
-    //   <Button title="Go back to Home Screen" onPress={() => navigation.popToTop()} />
-    //   <Button title="Go to Screen to Implement" onPress={() => navigation.navigate      ('ScreenToImplement', {message: "testing!"} )} />
-
-    //   <GoBackButton title="Go Back To Screen One"/>
-    // </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screenTwo: {
+  main: {
+    display: 'flex',
     flex: 1,
-    alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: themes.bgSecondary,
+  },
+  left: {
+    flex: .1,
+    //backgroundColor: 'red',
+    paddingTop: 12,
+    paddingLeft: 12,
+  },
+  mid: {
+    flex: .8
+  },
+  right: {
+    flex: .1,
+    //backgroundColor: 'red',
+  },
+  midCol: {
+    flex: 1,
+    flexDirection:'column',
+  }, 
+  topCol: {
+    flex: .45,
+    flexDirection:'column',
     justifyContent: 'center',
-  },
-  screenTwoText: {
-    fontSize: 32,
-  },
+    alignItems: 'center',
+  }, 
+  centerCol: {
+    flex: .1,
+    flexDirection:'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }, 
+  botCol: {
+    flex: .45,
+    flexDirection:'row',
+    alignItems: 'center',
+    justifyContent:'space-between',
+    paddingHorizontal: 20,
+  }, 
 });
 
 

@@ -16,4 +16,12 @@ export const text = {
         color: 'black',
         justifyContent: 'center',
     },
+    pantryText: {
+        diaplay:'flex',
+        fontFamily: 'WorkSans',
+        fontSize: 15,
+        color: 'gret',
+        jtextAlignVertical: 'center',
+        textAlign: 'center',
+    },
   };

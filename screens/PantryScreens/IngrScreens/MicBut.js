@@ -9,7 +9,7 @@ export default function MicBut({ bgColor }) {
     return (
         <Pressable onPress={() => navigation.navigate('AddIngr')}>
             <View style={styles.button} backgroundColor={bgColor}>
-                <Feather name="mic" size={24} color="black" />
+                <Feather name="mic" size={45} color="black" />
               
             </View>
         </Pressable>
@@ -20,26 +20,17 @@ const styles = StyleSheet.create({
     button: {
         // width: "100%",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         shadowColor: 'black',
         shadowOpacity: 0.3,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
-        borderRadius: 20,
+        borderRadius: 35,
         borderColor: themes.buttonBackground,
         borderWidth: 1,
-        paddingLeft: 5,
-        paddingRight: 10,
+        paddingHorizontal: 25,
+        paddingVertical: 20,
         alignItems: 'center',
         margin: 5,
-    },
-    name: {
-        fontSize: 19,
-        fontFamily: 'MontserratSemiBold',
-        padding: 5,
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: 'black'
     },
 });

@@ -10,7 +10,7 @@ export default function TypeBut({ bgColor }) {
   return (
     <Pressable onPress={() => navigation.navigate('TypeIngr')}>
         <View style={styles.button} backgroundColor={bgColor}>
-            <SimpleLineIcons name="pencil" size={24} color="black" />
+            <SimpleLineIcons name="pencil" size={45} color="black" />
         </View>
     </Pressable>
   );
@@ -20,26 +20,19 @@ const styles = StyleSheet.create({
     button: {
         // width: "100%",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         shadowColor: 'black',
         shadowOpacity: 0.3,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
-        borderRadius: 20,
-        paddingLeft: 5,
-        paddingRight: 10,
+        borderRadius: 35,
+        borderColor: themes.buttonBackground,
+        borderWidth: 1,
+        paddingHorizontal: 25,
+        paddingVertical: 20,
         alignItems: 'center',
         margin: 5,
-        borderWidth: 1,
         borderColor: themes.buttonBackground,
     },
-    name: {
-        fontSize: 19,
-        fontFamily: 'MontserratSemiBold',
-        padding: 5,
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: "black",
-    },
+
 });
