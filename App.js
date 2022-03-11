@@ -17,6 +17,8 @@ import ThaiRoom from './screens/CookeeRooms/ThaiRoom';
 
 import CalendarRoom from './screens/CalendarScreen/CalendarHome';
 import CalendarRoomWeek from './screens/CalendarScreen/CalendarHomeWeek';
+import AddMeal from './screens/CalendarScreen/AddMeal';
+import EditMeal from './screens/CalendarScreen/EditMeal';
 
 import PantryScreen from './screens/PantryScreens/PantryScreen';
 import AddIngr from './screens/PantryScreens/IngrScreens/AddIngr';
@@ -137,7 +139,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -157,7 +159,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -177,7 +179,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -197,7 +199,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -217,7 +219,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -237,7 +239,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -257,7 +259,7 @@ export default function App() {
           options={({ navigation }) => ({
             headerTitle: "COOKEE ROOMS",
             headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
 
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
@@ -332,6 +334,7 @@ export default function App() {
             </Pressable>),
           })}
         />
+
         <Stack.Screen
           name="StopIngr"
           component={StopIngr}
@@ -352,6 +355,8 @@ export default function App() {
             </Pressable>),
           })}
         />
+
+
 
         <Stack.Screen
         name="AddIngr"
@@ -383,6 +388,27 @@ export default function App() {
             headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
             animationEnabled: false,
 
+          headerLeft: () => (<
+            Pressable onPress={() => navigation.navigate('Home')}>
+            <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+          </Pressable>),
+
+          headerRight: () => (<
+            Pressable onPress={() => navigation.navigate('Menu')}>
+            <Ionicons name="menu-sharp" size={30} color="white" />
+          </Pressable>),
+        })}
+      />
+
+        <Stack.Screen
+          name="EditMeal"
+          component={EditMeal}
+          options={({ navigation }) => ({
+            headerTitle: "CALENDAR",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            animationEnabled: false,
+
             headerLeft: () => (<
               Pressable onPress={() => navigation.navigate('Home')}>
               <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
@@ -395,6 +421,26 @@ export default function App() {
           })}
         />
 
+        <Stack.Screen
+          name="AddMeal"
+          component={AddMeal}
+          options={({ navigation }) => ({
+            headerTitle: "CALENDAR",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
+            animationEnabled: false,
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
 
 
 

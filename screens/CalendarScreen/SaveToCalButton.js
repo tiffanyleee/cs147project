@@ -1,31 +1,28 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import themes from '../assets/themes/themes';
-import { Entypo } from '@expo/vector-icons'; 
+import { Text, View, StyleSheet, Button, Pressable } from 'react-native';
+import themes from '../../assets/themes/themes';
+import { MaterialIcons } from '@expo/vector-icons';
 
-export default function CookeeRoomsButton({ screen }) {
-  const navigation = useNavigation();
-  return (
-    <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate(screen)}>
+export default function SaveToCalButton() {
+    return (
+        <View style={styles.container}>
             <View style={styles.button}>
-                <Entypo name="plus" size={30} color="white" />
+                <Text style={styles.name}>SAVE TO CALENDAR</Text>
             </View>
-        </Pressable>
-    </View>
-  );
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        width: '90%',
+        alignItems: 'center',
+        width: '100%',
     },
     button: {
-        //width: "100%",
-        flexDirection: "row",
+        width: '100%',
+        height: '50%',        
         justifyContent: "center",
         backgroundColor: themes.buttonBackground,
         shadowColor: 'black',

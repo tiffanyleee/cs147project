@@ -4,12 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import themes from '../../assets/themes/themes';
 import { MaterialIcons } from '@expo/vector-icons'; 
 
-
 export default function EditButton() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+        <Pressable onPress={() => navigation.navigate('EditMeal')}>
             <View style={styles.button}>
                 <MaterialIcons name="edit" size={30} color="white" />
             </View>
@@ -37,15 +36,5 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         alignItems: 'center',
-    },
-    name: {
-        fontSize: 21,
-        fontWeight: 'bold',
-        color: 'white',
-        fontFamily: 'MontserratBold',
-        padding: 5,
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        justifyContent: 'center',
     },
 });

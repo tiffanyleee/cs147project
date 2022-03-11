@@ -20,10 +20,10 @@ export default function CalendarHomeWeek({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                     <View style={{ width: 60, height: 40 }}>
-                        <PlusButton />
+                        <PlusButton screen='AddMeal' />
                     </View>
                     <View style={{ width: 60, height: 40 }}>
-                        <EditButton/>
+                        <EditButton />
                     </View>
                 </View>
             </View>
@@ -54,10 +54,11 @@ export default function CalendarHomeWeek({ navigation }) {
                 <Pressable
                     onPress={() => setModalVisible(true)}
                 >
-                    <View style={styles.calendar}>
-                        <Image source={require('../../assets/rooms/Calendar.png')} style={styles.image} />
-                    </View>
+                    <Image source={require('../../assets/rooms/Calendar.png')} style={styles.image} />
                 </Pressable>
+            </View>
+            <View style={styles.sync}>
+                <Image source={require('../../assets/rooms/Synced.png')} style={styles.syncImage} />
             </View>
         </View>
     );
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "white",
         justifyContent: "center",
-        // alignItems: "center",
+        //alignItems: "center",
     },
     modal: {
         flex: 1,
@@ -88,19 +89,24 @@ const styles = StyleSheet.create({
         alignContent: 'center'
     },
     calendar: {
-        flex: 5,
-        padding: 5,
+        flex: 4,
+        padding: 2,
     },
     image: {
         width: '100%',
+        height: '100%',
+        resizeMode: 'contain',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
     },
     modalView: {
-        margin: 20,
+        margin: 40,
+        height: 230,
         backgroundColor: themes.bgPrimary,
         borderRadius: 20,
         borderColor: 'black',
         borderWidth: 2,
-        padding: 20,
+        padding: 10,
         alignItems: "flex-end",
         shadowColor: "#000",
         shadowOffset: {
@@ -112,9 +118,11 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     details: {
+        flex: 1,
         width: '100%',
-        height: 140,
-        padding: 10,
+        height: '100%',
+        resizeMode: 'contain',
+        padding: 5,
     },
     button: {
         borderRadius: 20,
@@ -132,5 +140,15 @@ const styles = StyleSheet.create({
     modalText: {
         marginBottom: 15,
         textAlign: "center"
-    }
+    },
+    sync: {
+        flex: 0.4,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    syncImage: {
+        width: '50%',
+        height: '100%',
+        resizeMode: 'contain',
+    },
 });

@@ -64,7 +64,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.homePantry}>
         <View style={styles.homePantryButtons}>
           <PantryButton title="YOUR PANTRY" />
-          <PlusButton title="+" />
+          <PlusButton screen='PantryScreen'/>
         </View>
         <Text style={themes.time}>View current ingredients and recipes</Text>
         <View style={styles.pantryItems}>

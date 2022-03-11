@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Text, View, StyleSheet, Image, Button } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, Image, Button, SafeAreaView, Pressable } from 'react-native';
 import themes from '../../assets/themes/themes';
 import MonthViewButton from './MonthViewButton';
 import WeekViewButton from './WeekViewButton';
@@ -8,9 +8,19 @@ import EditButton from './EditButton';
 // utilizing react native calendar
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import { Feather } from '@expo/vector-icons';
+import DayPlan1 from './DayPlan1';
+import DayPlan2 from './DayPlan2';
+import DayPlan3 from './DayPlan3';
+import DayPlan4 from './DayPlan4';
+
+var MyArray = [DayPlan1, DayPlan2, DayPlan3, DayPlan4];
+function pickMeal() {
+  return MyArray[Math.floor(Math.random() * MyArray.length)];
+}
 
 
 export default function CalendarHome({ navigation }) {
+  const [mealSelection, setMealSelection] = useState(DayPlan1)
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -19,11 +29,11 @@ export default function CalendarHome({ navigation }) {
           <MonthViewButton textColor='white' bgColor={themes.bgSecondary} />
           <WeekViewButton bgColor={themes.buttonBackground} />
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-          <View style={{ width: 60, height: 40}}>
-            <PlusButton />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+          <View style={{ width: 60, height: 40 }}>
+            <PlusButton screen='AddMeal' />
           </View>
-          <View style={{ width: 60, height: 40}}>
+          <View style={{ width: 60, height: 40 }}>
             <EditButton />
           </View>
         </View>
@@ -37,43 +47,17 @@ export default function CalendarHome({ navigation }) {
           textDayHeaderFontFamily: 'MontserratBold',
         }}
           // Collection of dates that have to be marked. Default = {}
-
-          markedDates={{
-            '2022-03-04': { selected: true, marked: true, selectedColor: themes.buttonBackground, activeOpacity: 0 },
+          onDayPress={day => {
+            setMealSelection(pickMeal())
           }}
+          markingTyle={'custom'}
+          // markedDates={{
+          //   '2022-03-18': { selected: true, marked: true, selectedColor: themes.buttonBackground, activeOpacity: 0 },
+          // }}
         />
       </View>
       <View style={styles.homeCal}>
-        <View style={styles.calItem}>
-          <View style={styles.mealRow}>
-            <Text style={themes.header}>BREAKFAST</Text>
-            <View style={styles.time}>
-              <Feather name="clock" size={14} color="black" />
-              <Text style={themes.time}> 9:30am</Text>
-            </View>
-          </View>
-          <Text style={themes.time}>Pack bagel and fruit cup</Text>
-        </View>
-        <View style={styles.calItem}>
-          <View style={styles.mealRow}>
-            <Text style={themes.header}>LUNCH</Text>
-            <View style={styles.time}>
-              <Feather name="clock" size={14} color="black" />
-              <Text style={themes.time}> 1:00pm</Text>
-            </View>
-          </View>
-          <Text style={themes.time}>Meet Timi at Coupa</Text>
-        </View>
-        <View style={styles.calItem}>
-          <View style={styles.mealRow}>
-            <Text style={themes.header}>DINNER</Text>
-            <View style={styles.time}>
-              <Feather name="clock" size={14} color="black" />
-              <Text style={themes.time}> 7:15pm</Text>
-            </View>
-          </View>
-          <Text style={themes.time}>Trader Joe's Gnocci and brussel sprouts</Text>
-        </View>
+        {mealSelection}
       </View>
       <View style={styles.sync}>
         <Image source={require('../../assets/rooms/Synced.png')} style={styles.syncImage} />
@@ -88,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: themes.bgSecondary,
   },
   top: {
-    flex: 2,
+    flex: 1.8,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
@@ -103,12 +87,13 @@ const styles = StyleSheet.create({
   homeCal: {
     height: '100%',
     width: '90%',
-    flex: 3,
+    flex: 3.6,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: themes.bgPrimary,
     borderRadius: 20,
     margin: 20,
+    marginTop: 50,
   },
   mealRow: {
     flexDirection: 'row',
