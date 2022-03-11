@@ -4,7 +4,6 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import ScreenOne from './screens/ScreenOne';
-import ScreenTwo from './screens/ScreenTwo';
 import ScreenToImplement from './screens/ScreenToImplement';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 
@@ -20,6 +19,10 @@ import CalendarRoom from './screens/CalendarScreen/CalendarHome';
 import CalendarRoomWeek from './screens/CalendarScreen/CalendarHomeWeek';
 
 import PantryScreen from './screens/PantryScreens/PantryScreen';
+import AddIngr from './screens/PantryScreens/IngrScreens/AddIngr';
+import ListenIngr from './screens/PantryScreens/IngrScreens/ListenIngr';
+import StopIngr from './screens/PantryScreens/IngrScreens/StopIngr';
+import TypeIngr from './screens/PantryScreens/IngrScreens/TypeIngr';
 
 
 import Menu from './screens/Menu';
@@ -86,25 +89,7 @@ export default function App() {
           })}
         />
 
-        <Stack.Screen
-          name="ScreenTwo"
-          component={ScreenTwo}
-          options={({ navigation }) => ({
-            headerTitle: "ScreenTwoChange",
-            headerStyle: { backgroundColor: 'black' },
-            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
 
-            headerLeft: () => (<
-              Pressable onPress={() => navigation.navigate('Home')}>
-              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
-            </Pressable>),
-
-            headerRight: () => (<
-              Pressable onPress={() => navigation.navigate('Menu')}>
-              <Ionicons name="menu-sharp" size={30} color="white" />
-            </Pressable>),
-          })}
-        />
 
         <Stack.Screen
           name="PantryScreen"
@@ -124,7 +109,7 @@ export default function App() {
               <Ionicons name="menu-sharp" size={30} color="white" />
             </Pressable>),
           })}
-        />        
+        />
 
         <Stack.Screen
           name="ScreenToImplement"
@@ -326,6 +311,92 @@ export default function App() {
             </Pressable>),
           })}
         />
+
+        <Stack.Screen
+          name="ListenIngr"
+          component={ListenIngr}
+          options={({ navigation }) => ({
+            headerTitle: "PANTRY",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+            animationEnabled: false,
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+        <Stack.Screen
+          name="StopIngr"
+          component={StopIngr}
+          options={({ navigation }) => ({
+            headerTitle: "PANTRY",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+            animationEnabled: false,
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+        <Stack.Screen
+        name="AddIngr"
+        component={AddIngr}
+        options={({ navigation }) => ({
+          headerTitle: "PANTRY",
+          headerStyle: { backgroundColor: 'black' },
+          headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+          animationEnabled: false,
+
+          headerLeft: () => (<
+            Pressable onPress={() => navigation.navigate('Home')}>
+            <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+          </Pressable>),
+
+          headerRight: () => (<
+            Pressable onPress={() => navigation.navigate('Menu')}>
+            <Ionicons name="menu-sharp" size={30} color="white" />
+          </Pressable>),
+        })}
+      />
+
+        <Stack.Screen
+          name="TypeIngr"
+          component={TypeIngr}
+          options={({ navigation }) => ({
+            headerTitle: "PANTRY",
+            headerStyle: { backgroundColor: 'black' },
+            headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+            animationEnabled: false,
+
+            headerLeft: () => (<
+              Pressable onPress={() => navigation.navigate('Home')}>
+              <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+            </Pressable>),
+
+            headerRight: () => (<
+              Pressable onPress={() => navigation.navigate('Menu')}>
+              <Ionicons name="menu-sharp" size={30} color="white" />
+            </Pressable>),
+          })}
+        />
+
+
+
 
         <Stack.Screen
           name="Menu"

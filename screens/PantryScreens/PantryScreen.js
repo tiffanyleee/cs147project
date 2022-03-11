@@ -20,7 +20,7 @@ import PlusButton from '../../components/PlusButton';
 import RecipeItem from './RecipeItem';
 import RecpButton from './RecpButton';
 import IngButton from './IngButton';
-import IngItem from'./IngItem';
+import IngItem from './IngItem';
 // import text from '../../assets/themes/text';
 // import { Feather } from '@expo/vector-icons';
 // import CalendarButton from '../HomeScreen/CalendarButton';
@@ -52,9 +52,9 @@ const DATA = [
     imageurl: "https://th.bing.com/th/id/OIP.fMvKbIywcYlQFAyUKHbxsAHaHa?pid=ImgDet&rs=1",
     time: '30 mins',
   },
-  ];
+];
 
-  const INGR = [
+const INGR = [
   {
     id: "1",
     title: "sugar",
@@ -76,110 +76,110 @@ const DATA = [
   //   imageurl: "https://th.bing.com/th/id/OIP.fMvKbIywcYlQFAyUKHbxsAHaHa?pid=ImgDet&rs=1",
   //   brand: 'Classico',
   // },
-  ];
+];
 
 
 
 export default function PantryScreen({ navigation }) {
-///Bottom Component that Displays Conditionally
-    const Bottom = ({ingPressed}) => {
-      let content
-    
-      if (ingPressed) {
-        content = (
-          // <Text> {filteredData.toString()}</Text>
-          <FlatList
-                data = {filteredData}    // the array of data that the FlatList displays
-                renderItem={({ item }) => renderItem(item)} // function that renders each item
-                keyExtractor={(item) => item.id} // unique key for each item
-                // renderIng={({ing}) => renderIng(ing)} // function that renders each item
-                // keyExtractor={(ing) => ing.id} // unique key for each item
-                /> 
-        )
-      } else {
-        content = (
-        <FlatList 
-              data = {filteredData}    // the array of data that the FlatList displays
-              renderItem={({ item }) => renderItem(item)} // function that renders each item
-              keyExtractor={(item) => item.id} // unique key for each item
-          /> 
-        )
-      }
-    
-      return <View>{content}</View>
+  ///Bottom Component that Displays Conditionally
+  const Bottom = ({ ingPressed }) => {
+    let content
+
+    if (ingPressed) {
+      content = (
+        // <Text> {filteredData.toString()}</Text>
+        <FlatList
+          data={filteredData}    // the array of data that the FlatList displays
+          renderItem={({ item }) => renderItem(item)} // function that renders each item
+          keyExtractor={(item) => item.id} // unique key for each item
+        // renderIng={({ing}) => renderIng(ing)} // function that renders each item
+        // keyExtractor={(ing) => ing.id} // unique key for each item
+        />
+      )
+    } else {
+      content = (
+        <FlatList
+          data={filteredData}    // the array of data that the FlatList displays
+          renderItem={({ item }) => renderItem(item)} // function that renders each item
+          keyExtractor={(item) => item.id} // unique key for each item
+        />
+      )
     }
 
-      //////////////////////
-    // working on text input here
-    const [ingBg, settingBg] = useState(themes.bgSecondary);
-    const [recBg, settingRBg] = useState(themes.buttonBackground);
-    const [ingPressed, setPressed] = useState(true);
-    const [text, setText] = useState('');
-    const [allData, setAll] = useState(filteredData);
-    const [filteredData, setFilterData] = useState([]);
+    return <View>{content}</View>
+  }
 
-    const filterSearchResults = (value) => {
-        setText(value);
+  //////////////////////
+  // working on text input here
+  const [ingBg, settingBg] = useState(themes.bgSecondary);
+  const [recBg, settingRBg] = useState(themes.buttonBackground);
+  const [ingPressed, setPressed] = useState(true);
+  const [text, setText] = useState('');
+  const [allData, setAll] = useState(filteredData);
+  const [filteredData, setFilterData] = useState([]);
 
-        // if nothing, show all states
-        if (!value) {
-            setFilterData(allData);
-        } else {
-            // else filter by states that include text
-            setFilterData(allData.filter((recORing) => recORing.title.toLowerCase().includes(value.toLowerCase())));
-        }
-    };
+  const filterSearchResults = (value) => {
+    setText(value);
 
-    const ingPressedHandle = () =>  {
-      setPressed(true);
-      setFilterData(INGR);
-      setAll(INGR);
-      settingBg(themes.bgSecondary);
-      settingRBg(themes.buttonBackground);
-     }
-     const recPressedHandle = () =>  {
-      setPressed(false);
-      setFilterData(DATA);
-      setAll(DATA);
-      settingBg(themes.buttonBackground);
-      settingRBg(themes.bgSecondary);
-     }
-    //  handler() {
+    // if nothing, show all states
+    if (!value) {
+      setFilterData(allData);
+    } else {
+      // else filter by states that include text
+      setFilterData(allData.filter((recORing) => recORing.title.toLowerCase().includes(value.toLowerCase())));
+    }
+  };
+
+  const ingPressedHandle = () => {
+    setPressed(true);
+    setFilterData(INGR);
+    setAll(INGR);
+    settingBg(themes.bgSecondary);
+    settingRBg(themes.buttonBackground);
+  }
+  const recPressedHandle = () => {
+    setPressed(false);
+    setFilterData(DATA);
+    setAll(DATA);
+    settingBg(themes.buttonBackground);
+    settingRBg(themes.bgSecondary);
+  }
+  //  handler() {
 
 
-    const renderItem = (item) => (
-        <RecipeItem
-            title={item.title}
-            rating={item.rating}
-            imageurl={item.imageurl}
-            time={item.time}
-        />
-    );
-    const renderIng = (ing) => (
-      <IngItem
-          title={ing.title}
-          amount={ing.amount}
-          imageurl={ing.imageurl}
-          brand={ing.brand}
-      />
+  const renderItem = (item) => (
+    <RecipeItem
+      title={item.title}
+      rating={item.rating}
+      imageurl={item.imageurl}
+      time={item.time}
+    />
   );
-  
-    
+  const renderIng = (ing) => (
+    <IngItem
+      title={ing.title}
+      amount={ing.amount}
+      imageurl={ing.imageurl}
+      brand={ing.brand}
+    />
+  );
+
+
   // use effect for the firebase access
-    useEffect(() => {
-      setFilterData(INGR);
-    }, [])
-  
+  useEffect(() => {
+    setFilterData(INGR);
+  }, [])
+
   return (
     <View style={styles.PantryScreen}>
-      <ImageBackground source={require('../../assets/pantryimg.jpeg')}style={styles.top}>
+      <ImageBackground source={require('../../assets/pantryimg.jpeg')} style={styles.top}>
         <View style={styles.topBanner}>
-            <Text style={themes.header}>WELCOME TO YOUR PANTRY</Text>
-            <Text style={{textAlign: 'center'}}>Add ingredients to your pantry and view your recipes</Text>
-            <View style={styles.pantryItems}>
-              <Text style={themes.text}>35 Items</Text>
-              <Text style={themes.text}>10 Recipes</Text>
-            </View>
+          <Text style={themes.header}>WELCOME TO YOUR PANTRY</Text>
+          <Text style={{ textAlign: 'center' }}>Add ingredients to your pantry and view your recipes</Text>
+          <View style={styles.pantryItems}>
+            <Text style={themes.text}>35 Items</Text>
+            <Text style={themes.text}>10 Recipes</Text>
+          </View>
         </View>
       </ImageBackground>
       <View style={styles.middle}>
@@ -188,52 +188,52 @@ export default function PantryScreen({ navigation }) {
             <Text style={themes.header}>ADD INGREDIENTS</Text>
             <Text style={themes.text}>Click the + to tell Cookee what is in your pantry</Text>
           </View>
-          <View style={{flex: 1, paddingRight: 10}}>
+          <View style={{ flex: 1, paddingRight: 10 }}>
             <PlusButton title="+" />
           </View>
         </View>
         <View style={styles.mid2}>
           <View style={styles.search}>
             <TextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                style={styles.input}
-                clearButtonMode="always"
-                onChangeText={filterSearchResults}
-                value={text}
-                placeholder="Search"
-                style={{ backgroundColor: themes.searchBar, paddingHorizontal: 20, height: 40, borderRadius: 15 }}
+              autoCapitalize="none"
+              autoCorrect={false}
+              style={styles.input}
+              clearButtonMode="always"
+              onChangeText={filterSearchResults}
+              value={text}
+              placeholder="Search"
+              style={{ backgroundColor: themes.searchBar, paddingHorizontal: 20, height: 40, borderRadius: 15 }}
             />
-          </View> 
+          </View>
         </View>
         <View style={styles.mid3}>
           {/* <Text>test</Text> */}
           {/* <Text>{ingPressed.toString()}</Text> */}
-            <Pressable onPress = {ingPressedHandle} >
-                <View style={styles.button} backgroundColor={ingBg}>
-                    <Text style={styles.butName}>INGREDIENTS</Text>
-                </View>
-            </Pressable>
-            <Pressable onPress = {recPressedHandle} >
-                <View style={styles.button} backgroundColor={recBg}>
-                    <Text style={styles.butName} >RECIPES</Text>
-                </View>
-            </Pressable>
+          <Pressable onPress={ingPressedHandle} >
+            <View style={styles.button} backgroundColor={ingBg}>
+              <Text style={styles.butName}>INGREDIENTS</Text>
+            </View>
+          </Pressable>
+          <Pressable onPress={recPressedHandle} >
+            <View style={styles.button} backgroundColor={recBg}>
+              <Text style={styles.butName} >RECIPES</Text>
+            </View>
+          </Pressable>
           {/* <IngButton bgColor={themes.bgSecondary} ingPressed={ingPressed} action={this.handler}/>
           <RecpButton bgColor={themes.buttonBackground} ingPressed={ingPressed} action={this.handler}/> */}
-          
+
         </View>
       </View>
 
       <SafeAreaView style={styles.bottom}>
-        <Bottom ingPressed={ingPressed}/>
+        <Bottom ingPressed={ingPressed} />
         {/* <FlatList
                 data = {filteredData}    // the array of data that the FlatList displays
                 renderIng={({ing}) => renderIng(ing)} // function that renders each item
                 keyExtractor={(ing) => ing.id} // unique key for each item
                 />  */}
       </SafeAreaView>
-     
+
     </View>
   );
 }
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     margin: 5,
     borderWidth: 1,
     borderColor: themes.buttonBackground,
-},
+  },
   butName: {
     fontSize: 19,
     fontFamily: 'MontserratSemiBold',
@@ -263,10 +263,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     color: "black",
-},
+  },
   PantryScreen: {
     flex: 1,
-    
+
     // flexDirection: 'column',
     // alignItems: 'center',
     // justifyContent: 'center',
@@ -311,17 +311,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flex: 1,
     width: '100%',
-    flexDirection:'row',
+    flexDirection: 'row',
     justifyContent: 'space-evenly',
   },
   ingredients: {
     padding: 4,
     flex: 4,
     flexDirection: 'column',
-    margin: 5, 
+    margin: 5,
   },
   mid2: {
-    flex: 1, 
+    flex: 1,
     //backgroundColor: 'pink',
 
   },
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: 'column',
     justifyContent: 'center',
-},
+  },
   mid3: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     //backgroundColor: 'blue',
     flex: 1,
     //padding: 30,
-  
+
   },
   pantryItems: {
     flexDirection: 'row',

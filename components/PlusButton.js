@@ -8,7 +8,7 @@ export default function CookeeRoomsButton({ title }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+        <Pressable onPress={() => navigation.navigate('AddIngr')}>
             <View style={styles.button}>
                 <Entypo name="plus" size={30} color="white" />
             </View>

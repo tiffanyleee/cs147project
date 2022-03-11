@@ -10,7 +10,7 @@ import {
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 import ScreenOne from '../ScreenOne';
-import ScreenTwo from '../ScreenTwo';
+
 import ScreenToImplement from '../ScreenToImplement';
 import { Themes } from "../../assets/themes";
 import themes from '../../assets/themes/themes';
