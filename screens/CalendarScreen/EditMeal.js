@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     StyleSheet,
     Text,
@@ -18,8 +18,12 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import TextField from './TextField';
+import SaveToCalButton from './SaveToCalButton';
+import SavedToCalButton from './SavedToCalButton';
 
 export default function EditMeal({ navigation }) {
+    const [save, setSaved] = useState(SaveToCalButton)
+
     const DATA = [
         {
             id: '1',
@@ -60,14 +64,14 @@ export default function EditMeal({ navigation }) {
                 </View>
 
                 <View style={styles.headerM}>
-                    <Text style={styles.title}>ADD MEAL PLAN</Text>
+                    <Text style={styles.title}>EDIT MEAL PLAN</Text>
                     <Text style={styles.text}>Add location, time, and meal details</Text>
                 </View>
                 <View style={styles.headerR}>
                 </View>
             </View>
 
-            {/* <View style={styles.calendar}>
+            <View style={styles.calendar}>
                 <Calendar theme={{
                     arrowColor: 'orange',
                     selectedDayTextColor: 'black',
@@ -80,10 +84,10 @@ export default function EditMeal({ navigation }) {
                         console.log('selected day', day);
                     }}
                     markedDates={{
-                        '2022-03-04': { selected: true, marked: true, selectedColor: themes.buttonBackground, activeOpacity: 0 },
+                        '2022-03-11': { selected: true, marked: true, selectedColor: themes.buttonBackground, activeOpacity: 0 },
                     }}
                 />
-            </View> */}
+            </View>
             <View style={styles.details}>
                 <FlatList
                     data={DATA} // the array of data that the FlatList displays
@@ -91,9 +95,11 @@ export default function EditMeal({ navigation }) {
                     keyExtractor={(item) => item.id} // unique key for each item
                 />
             </View>
-
             <View style={styles.save}>
-
+                {/* <SaveToCalButton/> */}
+                <Pressable onPress={() => setSaved(SavedToCalButton)}>
+                    {save}
+                </Pressable>
             </View>
 
         </View>
@@ -105,8 +111,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-evenly',
-        //backgroundColor: themes.bgSecondary,
-        backgroundColor: 'red',
+        backgroundColor: themes.bgSecondary,
         width: '100%',
     },
     header: { ///
@@ -140,14 +145,14 @@ const styles = StyleSheet.create({
     },
     calendar: {
         flex: 4,
-        backgroundColor: 'blue',
     },
     details: {
         flex: 4,
-        backgroundColor: 'yellow',
+        alignItems: 'center',
     },
     save: {
         flex: 1,
-        backgroundColor: 'pink'
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });

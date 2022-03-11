@@ -37,14 +37,4 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         alignItems: 'center',
     },
-    name: {
-        fontSize: 21,
-        fontWeight: 'bold',
-        color: 'white',
-        fontFamily: 'MontserratBold',
-        padding: 5,
-        textAlignVertical: 'center',
-        textAlign: 'center',
-        justifyContent: 'center',
-    },
 });

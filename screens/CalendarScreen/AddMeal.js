@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     StyleSheet,
     Text,
@@ -18,8 +18,12 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import TextField from './TextField';
+import SaveToCalButton from './SaveToCalButton';
+import SavedToCalButton from './SavedToCalButton';
 
 export default function AddMeal({ navigation }) {
+    const [save, setSaved] = useState(SaveToCalButton)
+
     const DATA = [
         {
             id: '1',
@@ -80,7 +84,7 @@ export default function AddMeal({ navigation }) {
                         console.log('selected day', day);
                     }}
                     markedDates={{
-                        '2022-03-04': { selected: true, marked: true, selectedColor: themes.buttonBackground, activeOpacity: 0 },
+                        '2022-03-18': { selected: true, marked: true, selectedColor: themes.buttonBackground, activeOpacity: 0 },
                     }}
                 />
             </View>
@@ -91,9 +95,11 @@ export default function AddMeal({ navigation }) {
                     keyExtractor={(item) => item.id} // unique key for each item
                 />
             </View>
-
             <View style={styles.save}>
-
+                {/* <SaveToCalButton/> */}
+                <Pressable onPress={() => setSaved(SavedToCalButton)}>
+                    {save}
+                </Pressable>
             </View>
 
         </View>
@@ -139,15 +145,14 @@ const styles = StyleSheet.create({
     },
     calendar: {
         flex: 4,
-        backgroundColor: 'blue',
     },
     details: {
         flex: 4,
-        backgroundColor: 'yellow',
         alignItems: 'center',
     },
     save: {
         flex: 1,
-        backgroundColor: 'pink'
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });

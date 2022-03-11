@@ -3,11 +3,11 @@ import { Text, View, StyleSheet, Button, Pressable } from 'react-native';
 import themes from '../../assets/themes/themes';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function SaveToCalButton() {
+export default function SavedToCalButton() {
     return (
         <View style={styles.container}>
             <View style={styles.button}>
-                <Text style={styles.name}>SAVE TO CALENDAR</Text>
+                <Text style={styles.name}>SAVED</Text>
             </View>
         </View>
     );
@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '50%',        
         justifyContent: "center",
-        backgroundColor: themes.buttonBackground,
-        shadowColor: 'black',
-        shadowOpacity: 0.3,
+        backgroundColor: themes.bgSecondary,
+        shadowColor: themes.buttonBackground,
+        shadowOpacity: 0.5,
         shadowRadius: 5,
         shadowOffset: { width: -1, height: 5 },
         borderRadius: 20,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 21,
         fontWeight: 'bold',
-        color: 'white',
+        color: themes.buttonBackground,
         fontFamily: 'MontserratBold',
         padding: 5,
         textAlignVertical: 'center',
