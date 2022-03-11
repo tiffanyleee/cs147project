@@ -33,23 +33,26 @@ import IngItem from './IngItem';
 const DATA = [
   {
     id: "1",
-    title: "Buncis Kuah Santan",
-    rating: '4.9',
+    title: "Thai Veg Yellow Curry",
+    rating: '4.9 stars',
     imageurl: 'https://cdn-brilio-net.akamaized.net/news/2021/06/06/207299/1488567-10-resep-buncis-santan.jpg',
+    recipeLink: 'https://www.cookclickndevour.com/thai-yellow-curry-vegan/',
     time: '60 mins',
   },
   {
     id: "2",
-    title: "Ayam Kecap Manis",
-    rating: '3.9',
+    title: "Spicy Peppered Wings",
+    rating: '3.9 stars',
     imageurl: "https://i.pinimg.com/originals/68/6f/e3/686fe39cd97238d70523c789f983ae8f.jpg",
+    recipeLink: 'https://thefeedfeed.com/1bigbite/korean-hot-pepper-chicken-wings',
     time: '20 mins',
   },
   {
     id: "3",
-    title: "Cumi Saus Telur Asin",
-    rating: '2.9',
+    title: "Salt & Pepper Chicken",
+    rating: '2.9 stars',
     imageurl: "https://th.bing.com/th/id/OIP.fMvKbIywcYlQFAyUKHbxsAHaHa?pid=ImgDet&rs=1",
+    recipeLink: 'https://allwaysdelicious.com/salt-and-pepper-chicken/',
     time: '30 mins',
   },
 ];
@@ -57,25 +60,23 @@ const DATA = [
 const INGR = [
   {
     id: "1",
-    title: "sugar",
-    rating: '4 cups',
+    title: "Sugar",
+    rating: '1 jar',
     imageurl: 'https://th.bing.com/th/id/R.00744a1415356ee0255cd89a38983007?rik=WYeT8DmRNF%2bEsg&riu=http%3a%2f%2fwww.healthyblackwoman.com%2fwp-content%2fuploads%2f2013%2f04%2fsugar.jpg&ehk=h%2bW37w4gMGrEISK3XxuIN4Rvv9mAXbw707pIRT9L65A%3d&risl=&pid=ImgRaw&r=0',
-    time: '',
   },
   {
     id: "2",
-    title: "pasta sauce",
-    rating: '1 jar',
-    imageurl: "https://images.albertsons-media.com/is/image/ABS/960061499?$ecom-pdp-desktop$&defaultImage=Not_Available&defaultImage=Not_Available",
-    time: 'Barilla',
+    title: "Salt",
+    rating: '1 box',
+    imageurl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTjQdXON7OcsYPQ6Eu345zYFwR4pRX2MubTj_7BVFIr3KkDaxpX83WuE7aJK9oTGA-2G-62mjPc&usqp=CAE",
   },
-  // {
-  //   id: "3",
-  //   title: "pasta sauce",
-  //   amount: '1 jar',
-  //   imageurl: "https://th.bing.com/th/id/OIP.fMvKbIywcYlQFAyUKHbxsAHaHa?pid=ImgDet&rs=1",
-  //   brand: 'Classico',
-  // },
+  {
+    id: "3",
+    title: "Pepper",
+    rating: '1 bottle',
+    imageurl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTrAy0GStDM2Hbd4JwUW3MNpxg4SXLQzZYDZOJv3QMZF7lP690mgg0i9tnWbWo&usqp=CAE",
+    brand: 'Classico',
+  },
 ];
 
 
@@ -152,6 +153,7 @@ export default function PantryScreen({ navigation }) {
       title={item.title}
       rating={item.rating}
       imageurl={item.imageurl}
+      recipeLink={item.recipeLink}
       time={item.time}
     />
   );
@@ -266,12 +268,7 @@ const styles = StyleSheet.create({
   },
   PantryScreen: {
     flex: 1,
-
-    // flexDirection: 'column',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    //backgroundColor: 'red'
-    //backgroundColor: themes.bgSecondary,
+    backgroundColor: themes.bgSecondary,
   },
   text: {
     fontSize: 32,
