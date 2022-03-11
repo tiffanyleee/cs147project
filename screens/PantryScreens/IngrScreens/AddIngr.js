@@ -14,7 +14,9 @@ export default function AddIngr({ navigation }) {
       <Pressable style={styles.BackButtonBox} onPress={() => navigation.goBack()}>
         <Ionicons name="chevron-back" size={35} color="black" />
       </Pressable>
-      <Image source={require('../../../assets/pantry/CookeeOff.png')} />
+      <Pressable onPress={() => navigation.navigate('ListenIngr')}>
+        <Image source={require('../../../assets/pantry/CookeeOff.png')} />
+      </Pressable>
       {/* Image source={require('../../assets/rooms/italian.png')} */}
       <Text>TAP COOKEE TO START DICTATING INGREDIENTS OR SELECT THE PENCIL TO TYPE INGREDIENTS</Text>
       <MicBut bgColor={themes.bgSecondary} />

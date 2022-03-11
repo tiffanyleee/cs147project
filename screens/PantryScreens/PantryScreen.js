@@ -189,7 +189,7 @@ export default function PantryScreen({ navigation }) {
             <Text style={themes.text}>Click the + to tell Cookee what is in your pantry</Text>
           </View>
           <View style={{ flex: 1, paddingRight: 10 }}>
-            <PlusButton title="+" />
+            <PlusButton  screen='AddIngr' title="+" />
           </View>
         </View>
         <View style={styles.mid2}>

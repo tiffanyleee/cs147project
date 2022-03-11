@@ -7,7 +7,7 @@ import {
     Pressable,
     TextInput,
 } from 'react-native';
-import themes from '../../assets/themes/themes';
+import themes from '../assets/themes/themes';
 
 
 export default function TextField({ placeholder }) {

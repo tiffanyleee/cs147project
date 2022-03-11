@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button, Image } from 'react-native';
+import { Text, View, StyleSheet, Pressable, Button, Image } from 'react-native';
 
 
 import GoBackButton from '../../GoBackButton';
@@ -9,7 +9,10 @@ import themes from '../../../assets/themes/themes';
 export default function ListenIngr({ navigation }) {
   return (
     <View>
-      <Image source={require('../../../assets/pantry/CookeeOff.png')} />
+      <Pressable onPress={() => navigation.navigate('StopIngr')}>
+        <Image source={require('../../../assets/pantry/CookeeOff.png')} />
+      </Pressable>
+    
       {/* Image source={require('../../assets/rooms/italian.png')} */}
       <Text>TAP COOKEE TO STOP VOICE TO TEXT</Text>
 

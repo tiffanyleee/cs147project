@@ -17,7 +17,7 @@ import themes from '../../assets/themes/themes';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-import TextField from './TextField';
+import TextField from '../../components/TextField';
 import SaveToCalButton from './SaveToCalButton';
 import SavedToCalButton from './SavedToCalButton';
 

@@ -64,7 +64,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.homePantry}>
         <View style={styles.homePantryButtons}>
           <PantryButton title="YOUR PANTRY" />
-          <PlusButton screen='PantryScreen'/>
+          <PlusButton screen='AddIngr'/>
         </View>
         <Text style={themes.time}>View current ingredients and recipes</Text>
         <View style={styles.pantryItems}>
@@ -79,7 +79,7 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.roomsTile}>
 
           <View style={styles.roomsDetails}>
-            <Pressable onPress={() => Linking.openURL('https://stanford.zoom.us/my/lights?pwd=TmxXUXNTMzVSQ2FINTBiZjRMa3d4QT09')}>
+            <Pressable onPress={() => Linking.openURL('https://www.youtube.com/watch?v=jMq8lEu-of0')}>
               <Image source={require('../../assets/rooms/italian.png')} style={styles.image} />
             </Pressable>
             <Text style={themes.header}>ITALIAN NIGHT: LASAGNA</Text>
@@ -87,7 +87,7 @@ export default function HomeScreen({ navigation }) {
           </View>
 
           <View style={styles.roomsDetails}>
-            <Pressable onPress={() => Linking.openURL('https://stanford.zoom.us/my/lights?pwd=TmxXUXNTMzVSQ2FINTBiZjRMa3d4QT09')}>
+            <Pressable onPress={() => Linking.openURL('https://www.youtube.com/watch?v=pEQ7_6ZE_Yw')}>
               <Image source={require('../../assets/rooms/french.png')} style={styles.image} />
             </Pressable>
             <Text style={themes.header}>FRENCH NIGHT: ESCARGOT</Text>
