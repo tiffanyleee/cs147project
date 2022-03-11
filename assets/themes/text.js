@@ -17,11 +17,11 @@ export const text = {
         justifyContent: 'center',
     },
     pantryText: {
-        diaplay:'flex',
+    
         fontFamily: 'WorkSans',
         fontSize: 15,
-        color: 'gret',
-        jtextAlignVertical: 'center',
+        color: 'grey',
+        textAlignVertical: 'center',
         textAlign: 'center',
     },
   };
