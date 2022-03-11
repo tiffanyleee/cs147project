@@ -19,4 +19,5 @@ export default Themes = {
     header: text.header,
     body: text.body,
     text: text.text,
+    textInput: palette.textInput,
 };

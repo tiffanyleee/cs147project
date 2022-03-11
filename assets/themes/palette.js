@@ -6,4 +6,5 @@ export const palette = {
     lightBlack: '#121416',
     lighterBlack: '#202224',
     darkGray: '#E5E5E5',
+    textInput: '#FFD49E'
   };

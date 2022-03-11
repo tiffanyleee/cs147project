@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import themes from '../../assets/themes/themes';
 import { MaterialIcons } from '@expo/vector-icons'; 
 
-export default function EditButton() {
+export default function SaveToCalButton() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>

@@ -2,31 +2,24 @@ import * as React from 'react';
 import { Text, View, StyleSheet, Button, Pressable} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import themes from '../../assets/themes/themes';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons'; 
 
-export default function EditButton() {
+export default function CookeeRoomsButton({ title }) {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate('EditMeal')}>
-            <View style={styles.button}>
-                <MaterialIcons name="edit" size={30} color="white" />
-            </View>
-        </Pressable>
-    </View>
+    <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+        <View style={styles.button}>
+            <Entypo name="plus" size={30} color="white" />
+        </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        width: '90%',
-    },
     button: {
-        //width: "100%",
+        // width: "100%",
         flexDirection: "row",
-        justifyContent: "center",
+        justifyContent: "space-between",
         backgroundColor: themes.buttonBackground,
         shadowColor: 'black',
         shadowOpacity: 0.3,

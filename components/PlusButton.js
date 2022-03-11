@@ -4,11 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import themes from '../assets/themes/themes';
 import { Entypo } from '@expo/vector-icons'; 
 
-export default function CookeeRoomsButton({ title }) {
+export default function CookeeRoomsButton({ screen }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate('ScreenTwo')}>
+        <Pressable onPress={() => navigation.navigate(screen)}>
             <View style={styles.button}>
                 <Entypo name="plus" size={30} color="white" />
             </View>

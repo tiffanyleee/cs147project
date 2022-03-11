@@ -20,7 +20,7 @@ export default function CalendarHomeWeek({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                     <View style={{ width: 60, height: 40 }}>
-                        <PlusButton />
+                        <PlusButton screen='AddMeal'/>
                     </View>
                     <View style={{ width: 60, height: 40 }}>
                         <EditButton/>
@@ -89,18 +89,19 @@ const styles = StyleSheet.create({
     },
     calendar: {
         flex: 5,
-        padding: 5,
+        padding: 10,
     },
     image: {
         width: '100%',
     },
     modalView: {
-        margin: 20,
+        margin: 40,
+        height: 230,
         backgroundColor: themes.bgPrimary,
         borderRadius: 20,
         borderColor: 'black',
         borderWidth: 2,
-        padding: 20,
+        padding: 10,
         alignItems: "flex-end",
         shadowColor: "#000",
         shadowOffset: {
@@ -113,8 +114,8 @@ const styles = StyleSheet.create({
     },
     details: {
         width: '100%',
-        height: 140,
-        padding: 10,
+        height: 150,
+        padding: 5,
     },
     button: {
         borderRadius: 20,
