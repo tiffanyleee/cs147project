@@ -4,13 +4,15 @@ import { useNavigation } from '@react-navigation/native';
 import themes from '../../../assets/themes/themes';
 import { Entypo } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 export default function DoneBut() {
   const navigation = useNavigation();
   return (
         <Pressable onPress={() => navigation.navigate('PantryScreen')}>
             <View style={styles.button}>
-                <Text style={styles.dButText}>DONE</Text>
+                {/* <Text style={styles.dButText}>DONE</Text> */}
+                <Feather name="check" size={24} color="black" />
               
             </View>
         </Pressable>

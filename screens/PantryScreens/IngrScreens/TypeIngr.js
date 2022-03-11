@@ -59,7 +59,7 @@ export default function TypeIngr({ navigation }) {
         <Text style={themes.pantryText}>BEGIN TYPING INGREDIENTS OR SELECT VOICE TO USE DICTATION TO ADD INGREDIENTS</Text>
       </View>
       <View style={styles.col3}>
-        <PlusButton screen='TypeIngr' />
+        <PlusButton style={styles.plus} screen='TypeIngr' />
       </View>
       <View style={styles.col4}>
         <FlatList
@@ -127,15 +127,20 @@ const styles = StyleSheet.create({
     flex: .2,
     // justifyContent: 'flex-start',
     alignItems: 'center',
+    width: '30%',
     //   // alignItems: 'center',
     //   // justifyContent: 'center',
-    // backgroundColor:'green',
+    backgroundColor:'green',
     
   },
   col4: {
     flex: 1,
     justifyContent: 'center',
       alignItems: 'center',
+      // backgroundColor:'purple',
+  },
+  plus: {
+    // width: '50%',
       // backgroundColor:'purple',
   },
   col5: {

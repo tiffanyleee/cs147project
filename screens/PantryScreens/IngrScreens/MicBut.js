@@ -9,7 +9,10 @@ export default function MicBut({ bgColor }) {
     return (
         <Pressable onPress={() => navigation.navigate('AddIngr')}>
             <View style={styles.button} backgroundColor={bgColor}>
-                <Feather name="mic" size={45} color="black" />
+                {/* <Feather name="mic" size={45} color="black" /> */}
+                <Text>
+                    VOICE
+                </Text>
               
             </View>
         </Pressable>

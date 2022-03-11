@@ -10,7 +10,10 @@ export default function TypeBut({ bgColor }) {
   return (
     <Pressable onPress={() => navigation.navigate('TypeIngr')}>
         <View style={styles.button} backgroundColor={bgColor}>
-            <SimpleLineIcons name="pencil" size={45} color="black" />
+            {/* <SimpleLineIcons name="pencil" size={45} color="black" /> */}
+            <Text>
+              TEXT
+            </Text>
         </View>
     </Pressable>
   );
