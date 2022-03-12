@@ -24,11 +24,11 @@ export default function StopIngr({ navigation }) {
     },
     {
       id: '4',
-      placeholder: 'Basil'
+      placeholder: 'Spinach'
     },
     {
       id: '5',
-      placeholder: 'Cheese'
+      placeholder: 'Tomatoes'
     },
   ];
 
