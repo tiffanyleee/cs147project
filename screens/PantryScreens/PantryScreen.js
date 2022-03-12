@@ -145,7 +145,7 @@ export default function PantryScreen({ navigation }) {
   const [recBg, settingRBg] = useState(themes.buttonBackground);
   const [ingPressed, setPressed] = useState(true);
   const [text, setText] = useState('');
-  const [allData, setAll] = useState(filteredData);
+  const [allData, setAll] = useState(INGR);
   const [filteredData, setFilterData] = useState([]);
 
   const filterSearchResults = (value) => {
@@ -194,7 +194,6 @@ export default function PantryScreen({ navigation }) {
       brand={ing.brand}
     />
   );
-
 
   // use effect for the firebase access
   useEffect(() => {
