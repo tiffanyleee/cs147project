@@ -49,10 +49,6 @@ export default function AllRooms({ navigation }) {
         setRooms(data);
     }
 
-    console.log('outside of functions');
-    console.log(DATA3);
-    console.log('done with outside');
-
     //////////////////////
     // working on text input here
     const [text, setText] = useState('');
