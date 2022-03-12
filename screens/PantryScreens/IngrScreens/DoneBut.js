@@ -9,7 +9,7 @@ import { Feather } from '@expo/vector-icons';
 export default function DoneBut() {
   const navigation = useNavigation();
   return (
-        <Pressable style={styles.press} onPress={() => navigation.navigate('PantryScreen')}>
+        <Pressable style={styles.press} onPress={() => navigation.navigate('UpdatePS')}>
             <View style={styles.button}>
                 {/* <Text style={styles.dButText}>DONE</Text> */}
                 <Feather name="check" size={50} color="white" />

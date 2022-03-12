@@ -25,7 +25,7 @@ import AddIngr from './screens/PantryScreens/IngrScreens/AddIngr';
 import ListenIngr from './screens/PantryScreens/IngrScreens/ListenIngr';
 import StopIngr from './screens/PantryScreens/IngrScreens/StopIngr';
 import TypeIngr from './screens/PantryScreens/IngrScreens/TypeIngr';
-
+import UpdatePS from './screens/PantryScreens/UpdatePS';
 
 import Menu from './screens/Menu';
 import { Ionicons } from '@expo/vector-icons';
@@ -399,6 +399,26 @@ export default function App() {
           </Pressable>),
         })}
       />
+      <Stack.Screen
+      name="UpdatePS"
+      component={UpdatePS}
+      options={({ navigation }) => ({
+        headerTitle: "PANTRY",
+        headerStyle: { backgroundColor: 'black' },
+        headerTitleStyle: { fontSize: 32, fontWeight: 'bold', color: 'white' },
+        animationEnabled: false,
+
+        headerLeft: () => (<
+          Pressable onPress={() => navigation.navigate('Home')}>
+          <Image source={require('./assets/cookee.png')} style={styles.menuBarImage} />
+        </Pressable>),
+
+        headerRight: () => (<
+          Pressable onPress={() => navigation.navigate('Menu')}>
+          <Ionicons name="menu-sharp" size={30} color="white" />
+        </Pressable>),
+      })}
+    />
 
         <Stack.Screen
           name="EditMeal"

@@ -31,8 +31,16 @@ import IngItem from './IngItem';
 // import { Linking } from 'react-native';
 
 const DATA = [
+    {
+        id: '1',
+        title: "Lasagna",
+        rating: '3.6 stars',
+        imageurl: 'https://www.loyaltyapp.com.au/wp-content/uploads/2018/09/hadleys-image-4-712x450.jpg',
+        recipeLink: 'https://www.spendwithpennies.com/easy-homemade-lasagna/',
+        time: '90 mins',
+      },
   {
-    id: "1",
+    id: "4",
     title: "Thai Veg Yellow Curry",
     rating: '4.9 stars',
     imageurl: 'https://cdn-brilio-net.akamaized.net/news/2021/06/06/207299/1488567-10-resep-buncis-santan.jpg',
@@ -55,9 +63,36 @@ const DATA = [
     recipeLink: 'https://allwaysdelicious.com/salt-and-pepper-chicken/',
     time: '30 mins',
   },
+
 ];
 
 const INGR = [
+    {
+        id: "10",
+        title: "pasta",
+        // imageurl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTjQdXON7OcsYPQ6Eu345zYFwR4pRX2MubTj_7BVFIr3KkDaxpX83WuE7aJK9oTGA-2G-62mjPc&usqp=CAE",
+      },
+      {
+        id: "11",
+        title: "pasta sauce",
+        // imageurl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTrAy0GStDM2Hbd4JwUW3MNpxg4SXLQzZYDZOJv3QMZF7lP690mgg0i9tnWbWo&usqp=CAE",
+    
+      },
+      {
+        id: "12",
+        title: "onion",
+        // imageurl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTjQdXON7OcsYPQ6Eu345zYFwR4pRX2MubTj_7BVFIr3KkDaxpX83WuE7aJK9oTGA-2G-62mjPc&usqp=CAE",
+      },
+      {
+        id: "13",
+        title: "tomatoes",
+        // imageurl: 'https://th.bing.com/th/id/R.00744a1415356ee0255cd89a38983007?rik=WYeT8DmRNF%2bEsg&riu=http%3a%2f%2fwww.healthyblackwoman.com%2fwp-content%2fuploads%2f2013%2f04%2fsugar.jpg&ehk=h%2bW37w4gMGrEISK3XxuIN4Rvv9mAXbw707pIRT9L65A%3d&risl=&pid=ImgRaw&r=0',
+      },
+      {
+        id: "14",
+        title: "spinach",
+        // imageurl: 'https://th.bing.com/th/id/R.00744a1415356ee0255cd89a38983007?rik=WYeT8DmRNF%2bEsg&riu=http%3a%2f%2fwww.healthyblackwoman.com%2fwp-content%2fuploads%2f2013%2f04%2fsugar.jpg&ehk=h%2bW37w4gMGrEISK3XxuIN4Rvv9mAXbw707pIRT9L65A%3d&risl=&pid=ImgRaw&r=0',
+      },
   {
     id: "1",
     title: "carrots",
@@ -104,6 +139,7 @@ const INGR = [
     id: "9",
     title: "pepper",
     // imageurl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTrAy0GStDM2Hbd4JwUW3MNpxg4SXLQzZYDZOJv3QMZF7lP690mgg0i9tnWbWo&usqp=CAE",
+    
   },
 ];
 
@@ -115,24 +151,24 @@ export default function PantryScreen({ navigation }) {
     let content
 
     if (ingPressed) {
-      content = (
-        // <Text> {filteredData.toString()}</Text>
-        <FlatList 
-          data={filteredData}    // the array of data that the FlatList displays
-          renderItem={({ item }) => renderIng(item)} // function that renders each item
-          keyExtractor={(item) => item.id} // unique key for each item
-          
-        // renderIng={({ing}) => renderIng(ing)} // function that renders each item
-        // keyExtractor={(ing) => ing.id} // unique key for each item
-        />
-      )
-    } else {
-      content = (
-        <FlatList 
-          data={filteredData}    // the array of data that the FlatList displays
-          renderItem={({ item }) => renderItem(item)} // function that renders each item
-          keyExtractor={(item) => item.id} // unique key for each item
-        />
+        content = (
+            // <Text> {filteredData.toString()}</Text>
+            <FlatList
+              data={filteredData}    // the array of data that the FlatList displays
+              renderItem={({ item }) => renderIng(item)} // function that renders each item
+              keyExtractor={(item) => item.id} // unique key for each item
+              
+            // renderIng={({ing}) => renderIng(ing)} // function that renders each item
+            // keyExtractor={(ing) => ing.id} // unique key for each item
+            />
+          )
+        } else {
+          content = (
+            <FlatList
+              data={filteredData}    // the array of data that the FlatList displays
+              renderItem={({ item }) => renderItem(item)} // function that renders each item
+              keyExtractor={(item) => item.id} // unique key for each item
+            />
       )
     }
 
@@ -257,7 +293,7 @@ export default function PantryScreen({ navigation }) {
       </View>
 
       <SafeAreaView style={styles.bottom}>
-        <Bottom  ingPressed={ingPressed} />
+        <Bottom ingPressed={ingPressed} />
         {/* <FlatList
                 data = {filteredData}    // the array of data that the FlatList displays
                 renderIng={({ing}) => renderIng(ing)} // function that renders each item
@@ -270,9 +306,6 @@ export default function PantryScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  // ingList: {
-  //   paddingLeft: 50,
-  // },
   button: {
     // width: "100%",
     flexDirection: "row",
