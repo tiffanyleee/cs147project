@@ -33,11 +33,11 @@ import IngItem from './IngItem';
 const DATA = [
     {
         id: '1',
-        title: "Lasagna",
-        rating: '3.6 stars',
-        imageurl: 'https://www.loyaltyapp.com.au/wp-content/uploads/2018/09/hadleys-image-4-712x450.jpg',
-        recipeLink: 'https://www.spendwithpennies.com/easy-homemade-lasagna/',
-        time: '90 mins',
+        title: "Veggie Pasta",
+        rating: '4.6 stars',
+        imageurl: 'https://cdn.shopify.com/s/files/1/1725/5449/products/pasta-evangelists-spaghetti-alla-chitarra-with-a-fresh-datterini-tomato-sauce-28290969272429_1000x.jpg?v=1627981669',
+        recipeLink: 'https://www.cocoandash.com/doctored-up-spaghetti-sauce-from-a-jar/',
+        time: '30 mins',
       },
   {
     id: "4",
